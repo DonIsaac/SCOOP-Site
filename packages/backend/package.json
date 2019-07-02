@@ -4,7 +4,8 @@
   "description": "Website for the Sustainability Co-op (SCOOP) at UMD",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "sass:compile": "node-sass --include-path sass ../frontend/css/input.scss ../frontend/css/compiled.css"
   },
   "author": "Open Sourcery",
   "license": "SEE LICENSE IN LICENSE",
@@ -26,6 +27,8 @@
     "@types/boom": "^7.2.1",
     "@types/express": "^4.17.0",
     "@types/mongoose": "^5.5.6",
-    "@types/node": "^12.0.10"
+    "@types/node": "^12.0.10",
+    "passport": "^0.4.0",
+    "node-sass": "^4.12.0"
   }
 }
