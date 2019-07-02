@@ -29,14 +29,7 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
-  background-color: #777; }
-
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem; }
+  background-color: #397539; }
 
 /* MARKETING CONTENT
   -------------------------------------------------- */
