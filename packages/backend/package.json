@@ -4,6 +4,8 @@
   "description": "Website for the Sustainability Co-op (SCOOP) at UMD",
   "main": "index.js",
   "scripts": {
+    "start": "echo \"Not yet implemented\"",
+    "start:dev": "ts-node server.ts",
     "test": "mocha",
     "sass:compile": "node-sass --include-path sass ../frontend/css/input.scss ../frontend/css/compiled.css"
   },
@@ -24,11 +26,18 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
+    "@types/body-parser": "^1.17.0",
     "@types/boom": "^7.2.1",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/cors": "^2.8.5",
     "@types/express": "^4.17.0",
-    "@types/mongoose": "^5.5.6",
-    "@types/node": "^12.0.10",
+    "@types/express-handlebars": "0.0.32",
+    "@types/helmet": "0.0.43",
+    "@types/mongoose": "^5.5.7",
+    "@types/node": "^12.0.12",
+    "node-sass": "^4.12.0",
     "passport": "^0.4.0",
-    "node-sass": "^4.12.0"
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
   }
 }
