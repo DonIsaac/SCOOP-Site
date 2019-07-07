@@ -1,72 +1,81 @@
-const express = require('express');
+import cors from 'cors';
+import helmet from 'helmet';
+import express from 'express';
+import handlebars from 'express-handlebars';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import path from 'path';
+import Config from "./config";
 
-const exphbs = require('express-handlebars');
+/**
+ * An Application is a wrapper for an express Application.
+ */
+export default class Application {
+  private app: express.Application;
+  private config: Config;
 
-const helmet = require('helmet');
+  public constructor(config: Config){
+    this.app = express();
+    this.config = config;
+  }
 
-const cors = require('cors');
+  /**
+   * Initializes server settings and data.
+   */
+  private initialize(): void {
+    this.app.set('port', this.config.server.port);
 
-const cookieParser = require('cookie-parser');
+    let hbs = handlebars({
+      extname: '.hbs',
+      layoutsDir: path.join(__dirname, '../frontend/views/'),
+      partialsDir: path.join(__dirname, 'frontend/views/partials'),
 
-const bodyParser = require('body-parser');
-
-const path = require('path');
-
-const config = require('./config/config.js');
-
-
-module.exports = function scoopMeSomeGoodStuff() {
-    const app = express();
-
-    // Things Donathan says to do and can write better comments about later
-    // Mount middleware
-    app.use(helmet());  // security
-    app.use(cors());    // header checking
-
-    // Fresh outta the oven
-    app.use(cookieParser());
-
-
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
-
-
-    /* TODO
-    ********** Static endpoint declarations **********
-    *
-    */
-
-
-
-
-    // App Constants
-
-    app.set('url', config.server.url);
-    app.set('port', config.server.port);
-
-    // Express-handlebars config
-    // TODO thees
-    var hbs = exphbs({
-        extname: '.hbs',
-        layoutsDir: path.join(__dirname, '../frontend/views/'),
-        partialsDir: path.join(__dirname, 'frontend/views/partials'),
-
-        helpers: {
-            // TODO?
-        }
+      helpers: {
+        // TODO?
+      }
     });
 
-    app.set('view engine', '.hbs');
-    app.set('views', '../frontend/views');
-    app.engine('hbs', hbs);
+    this.app.set('view engine', '.hbs');
+    this.app.engine('hbs', hbs);
+  }
 
+  /**
+   * Mounts middleware to the express application.
+   */
+  private mountMiddleware(): void {
+    this.app.use(helmet());
+    this.app.use(cors());
+    this.app.use(cookieParser());
+    this.app.use(bodyParser.json());
+  }
 
-    // Some endpoints
-    app.get('/', (req, res) => {
-        res.render('landing-page.hbs', {layouts: false});
-    });
+  /**
+   * Gets a stored value from the Application's storage map.
+   * @param key the key the value is stored under
+   */
+  public get(key: string): any {
+    return this.app.get(key);
+  }
 
-    return app;
+  /**
+   * Stores a value in the Application's storage map.
+   * @param key the key the value is stored under
+   * @param value the value to store
+   *
+   * @returns a pointer to the current Application for method chaining
+   */
+  public set(key: string, value: any): Application {
+    this.app.set(key, value);
+    return this;
+  }
 
+  /**
+   * Gets the internal express application. This allows for the application
+   * to be bootstrapped to a server.
+   *
+   * @returns the internal express application instance
+   */
+  public expose(): express.Application {
+    return this.app;
+  }
 }
