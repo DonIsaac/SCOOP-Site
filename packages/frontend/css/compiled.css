@@ -1,15 +1,8 @@
-#university {
-  display: flex;
-  flex-direction: column-reverse; }
-  #university div {
-    height: 49%; }
-
-#big-title-boye {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+body {
+  padding-top: 0; }
 
 #logo {
-  border: 2px solid black;
-  height: 100%; }
+  border: 2px solid black; }
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
@@ -32,8 +25,7 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
-  background-color: #397539; }
+  height: 32rem; }
 
 /* MARKETING CONTENT
   -------------------------------------------------- */
