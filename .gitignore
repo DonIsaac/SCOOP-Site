@@ -1,7 +1,21 @@
-.vscode
+# Dependencies
 node_modules
+
+# Editor Files
+.vscode
 .idea
+
+# Compiled Code
+dist/
+build/
+
+# Temporary Files
 *.log
 *.tmp
+
+# System Files
 .DS_Store
+
+# API and Encryption keys
 *.pem
+*.key

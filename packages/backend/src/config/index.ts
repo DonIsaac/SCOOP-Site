@@ -1,5 +1,4 @@
 import {PathLike, readFileSync} from 'fs';
-import config from '../config';
 import path from 'path';
 
 export interface ServerConfig {
@@ -67,7 +66,7 @@ export default class Config {
    */
   public static getInstance(): Config {
     if (!Config.instance)
-      Config.instance = new Config(process.env.NODE_ENV || 'production');
+      Config.instance = new Config(process.env.NODE_ENV || 'development');
 
     return Config.instance;
   }
