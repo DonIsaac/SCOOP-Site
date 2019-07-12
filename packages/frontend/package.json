@@ -4,15 +4,27 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "frontend": "render.js"
+    "render": "render.js"
   },
   "scripts": {
+    "build": "./bin/render.js && npm run sass:compile",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass:compile": "node-sass --include-path sass ./css/input.scss ./css/compiled.css"
+    "sass:compile": "sass src/css/input.scss build/css/compiled.css"
   },
   "keywords": [
     "frontend"
   ],
   "author": "Emery Bacon",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "commander": "^2.20.0",
+    "handlebars": "^4.1.2",
+    "handlebars-layouts": "^3.1.4",
+    "ulog": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "node-sass": "^4.12.0"
+  }
 }

@@ -1,0 +1,91 @@
+<!-- START OF CAROUSEL CONFIGURATION -->
+<div class="row carousel slide bg-primary" id="mainCarousel" data-ride="carousel" data-pause="hover"
+    data-keyboard="true">
+    <!-- Indicators - Li'l bois on the bottom that tell you which carousel item you're on -->
+    <ol class="carousel-indicators">
+        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mainCarousel" data-slide-to="1" class></li>
+        <li data-target="#mainCarousel" data-slide-to="2" class></li>
+    </ol>
+    <!-- All the good stuff inside the carousel -->
+    <div class="carousel-inner">
+        {{#each carousel-item}}
+        <div class="carousel-item">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>{{title}}</h1>
+                    <p class="lead">
+                        {{content}}
+                    </p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">{{button-text}}</a></p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <!-- First item -->
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Donec rutrum tortor non magna pulvinar commodo.</h1>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in justo et nibh
+                        porttitor rhoncus. Mauris fermentum ex sit amet ipsum condimentum finibus. Class aptent
+                        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque
+                        consequat eros in arcu consectetur cursus. Praesent hendrerit dignissim fermentum.
+                        Vivamus libero neque, commodo at nisi non, hendrerit condimentum ex. Etiam auctor
+                        vestibulum felis non imperdiet. Nam iaculis vulputate sodales. Duis sit amet arcu
+                        porttitor, cursus odio sit amet, efficitur nulla. Fusce scelerisque pretium augue, non
+                        vestibulum velit commodo eu. Fusce hendrerit eleifend ultrices. Curabitur feugiat
+                        tristique nulla at ornare. Fusce ornare mattis lacus, sit amet tincidunt dolor
+                        scelerisque blandit. Vivamus mattis, urna in semper tincidunt, tellus elit auctor
+                        sapien, rutrum placerat nunc arcu vitae metus. Duis mauris lorem, faucibus vitae enim
+                        quis, varius tempus quam. </p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- The second item -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>In rhoncus elit et diam feugiat varius.</h1>
+                    <p class="lead">
+                        Nunc ut purus neque. Morbi fringilla ipsum mi, a vulputate mauris auctor vel. In
+                        tincidunt, ipsum in elementum fermentum, arcu leo pharetra urna, sit amet commodo tortor
+                        massa eu augue. Morbi in quam nec risus fermentum molestie a vel lacus. Nulla facilisi.
+                        Aliquam scelerisque, eros ut porttitor laoreet, libero felis luctus est, vitae interdum
+                        arcu orci molestie ipsum. Sed ac dapibus enim. Nulla finibus a lorem a mollis. Quisque
+                        ante orci, efficitur ac pretium a, dictum a enim. Sed condimentum turpis in est commodo
+                        aliquet eu tempus justo.
+                    </p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Item the third -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Fusce vulputate ante at magna scelerisque convallis.</h1>
+                    <p class="lead">
+                        Suspendisse potenti. Curabitur dapibus tincidunt est, ac cursus velit malesuada sed.
+                        Quisque sodales enim id felis consectetur mattis. Fusce bibendum ac elit vel rutrum.
+                        Fusce dui nisl, tristique ac maximus a, hendrerit at purus. Mauris efficitur lectus quis
+                        enim facilisis, vitae tincidunt odio maximus. Donec fermentum fermentum sem, vel
+                        scelerisque ante maximus in. Pellentesque congue interdum erat, et sodales nisl
+                        imperdiet faucibus. Fusce mollis felis sed efficitur vestibulum. </p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of inner carousel, start of controls -->
+    <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

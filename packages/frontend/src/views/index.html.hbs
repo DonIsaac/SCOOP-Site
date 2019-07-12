@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="../../build/css/compiled.css">
+<div class="container-fluid pt-0 bg-warning">
+
+	<!-- Header row with banner and navbar -->
+	{{> header1}}
+
+	<!-- Jumbotron/carousel spot -->
+	{{> carousel}}
+
+	<!-- End of landing content, start of sections -->
+	{{#each sect}}
+	{{> section this}}
+	{{/each}}

@@ -1,0 +1,10 @@
+{
+  "source": "./src",
+  "outDir": "./build",
+  "resources": {
+    "templateDir": "views/",
+    "partialDirs": ["partials/"],
+    "dataDir": "data/",
+    "layoutDir": "layouts/"
+  }
+}
