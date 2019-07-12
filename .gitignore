@@ -12,6 +12,7 @@ build/
 # Temporary Files
 *.log
 *.tmp
+.sass-cache/
 
 # System Files
 .DS_Store
