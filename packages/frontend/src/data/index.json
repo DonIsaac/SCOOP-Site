@@ -1,3 +1,16 @@
 {
-
+    "data": {
+        "carousel": {
+            "carousel-item": [
+                {
+                    "title": "Lorem ipsum",
+                    "content": "dolor sid amirite"
+                },
+                {
+                    "title": "This is also an item",
+                    "content": "And some content to go with it"
+                }
+            ]
+        }
+    }
 }

@@ -274,7 +274,7 @@ const layouts_async = () => Promise.try('Loading layouts...')
 
 
 // const pages = []
-Promise.join(sources_async(), data_async(), partials_async(), layouts_async(),
+Promise.join(sources_async(), data_async(), partials_async(),
 async (sources, data) => {
   log.log('Rendering templates...')
   log.debug(`Partials: ${JSON.stringify(Object.keys(hbs.partials))}`)

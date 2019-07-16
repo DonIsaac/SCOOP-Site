@@ -24,7 +24,6 @@
     "ulog": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.6.2",
-    "node-sass": "^4.12.0"
+    "@types/node": "^12.6.2"
   }
 }
