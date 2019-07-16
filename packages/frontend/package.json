@@ -7,7 +7,7 @@
     "render": "render.js"
   },
   "scripts": {
-    "build": "./bin/render.js --debug && npm run sass:compile",
+    "build": ".\"/bin/render.js\" --debug && npm run sass:compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:compile": "sass src/css/input.scss build/css/compiled.css"
   },
@@ -25,7 +25,6 @@
     "ulog": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.6.2",
-    "node-sass": "^4.12.0"
+    "@types/node": "^12.6.2"
   }
 }

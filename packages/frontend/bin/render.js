@@ -273,7 +273,7 @@ const layouts_async = () => Promise.try(() => log.log('Loading layouts...'))
   .catch(raise('Error thrown while registering layouts'))
 
 const helpers_async = () => Promise.try(() => log.log('Registering helpers...'))
-  .then(() => readdir(HELPER_DIR), 'utf-8')
+  .then(() => readdir(HELPER_DIR, 'utf-8'))
   .filter(helper_file => helper_file.endsWith('.js'))
   .each(async helper_file => {
     let helpers = await require(path.join(HELPER_DIR, helper_file))
