@@ -1,25 +1,8 @@
 {
-<<<<<<< HEAD
-    "data": {
-        "carousel": {
-            "carousel-item": [
-                {
-                    "title": "Lorem ipsum",
-                    "content": "dolor sid amirite"
-                },
-                {
-                    "title": "This is also an item",
-                    "content": "And some content to go with it"
-                }
-            ]
-        }
-    }
-=======
   "pages": [
     { "text": "Home", "url": "." },
     { "text": "About", "url": "./about.html" },
     { "text": "Calendar", "url": "./calendar.html" }
   ],
   "active": "Home"
->>>>>>> b71707e0812c9e33148ecf46b85c9eb5c1a7ad91
 }

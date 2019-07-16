@@ -289,31 +289,6 @@ const helpers_async = () => Promise.try(() => log.log('Registering helpers...'))
 
 
 // const pages = []
-<<<<<<< HEAD
-Promise.join(sources_async(), data_async(), partials_async(),
-async (sources, data) => {
-  log.log('Rendering templates...')
-  log.debug(`Partials: ${JSON.stringify(Object.keys(hbs.partials))}`)
-  log.debug(`Pages: ${Object.keys(sources)}`)
-	for (let page_name in sources) {
-		let template = hbs.compile(sources[page_name])
-		let page;
-		try { // Error thrown if template contains a syntax error
-			page = template(data[page_name] || {})
-		} catch (err) {
-      log.error(`Syntax error in page ${page_name}:\n${err.message}`)
-      log.debug(err.stack)
-			process.exit(1)
-		}
-		let page_path = path.join(OUT_DIR_PATH, page_name + '.html')
-		log.log(`Rendering ${page_name}...`)
-		// pages.push(await writeFile(page_path, page))
-		await writeFile(page_path, page).then(() => log.log('Finished'))
-
-	}
-})
-	.then(() => log.info('Finished rendering.'))
-=======
 Promise.join(sources_async(), data_async(), partials_async(), layouts_async(), helpers_async(),
   async (sources, data) => {
     log.log('Rendering templates...')
@@ -338,7 +313,6 @@ Promise.join(sources_async(), data_async(), partials_async(), layouts_async(), h
     }
   })
   .then(() => log.info('Finished rendering.'))
->>>>>>> b71707e0812c9e33148ecf46b85c9eb5c1a7ad91
 
 // Promise.all(pages)
 // .then(() => console.log('Successfully saved all rendered pages'))
