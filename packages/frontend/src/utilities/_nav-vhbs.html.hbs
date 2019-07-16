@@ -1,14 +1,8 @@
 <!-- The navbar class is a navbar, it's a bar you navigate with -->
-<nav class="row navbar sticky-top navbar-expand navbar-dark bg-dark">
-    <!-- Collapse the navbar to a hamburger button if the page gets too small -->
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">SCOOP </a>
-    </div>
-    <ul class="nav navbar-nav">
-        {{#each pages as |page|}}
-        <li class="nav-item {{#if_eq page.text ../active}}active{{/if_eq}}">
-            <a class="nav-link" href="{{page.url}}">{{page.text}}</a>
-        </li>
-        {{/each}}
-    </ul>
-</nav>
+<ul class="nav navbar-nav justify-content-end pb-3">
+    {{#each pages as |page|}}
+    <li class="nav-item {{#if_eq page.text ../active}}active{{/if_eq}}">
+        <a class="nav-link" href="{{page.url}}">{{page.text}}</a>
+    </li>
+    {{/each}}
+</ul>

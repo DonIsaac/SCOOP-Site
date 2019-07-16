@@ -3,7 +3,7 @@
   <a class="nav-link {{#if active}}active{{/if}}" href="{{url}}">{{@partial-block}}</a>
 {{/inline}}
 
-  <ul class="nav justify-content-end pb-3">
+  <ul class="nav pb-3">
     {{#each pages as |page|}}
     <li class="nav-item">
       {{#if_eq page.text ../active }}

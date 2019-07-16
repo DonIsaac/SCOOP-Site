@@ -1,16 +1,17 @@
 {{!-- Don's header design --}}
 {{#*inline "link"}}
-  <a class="nav-link {{#if active}}active{{/if}}" href="{{url}}">{{@partial-block}}</a>
+<a class="nav-link {{#if active}}active{{/if}}" href="{{url}}">{{@partial-block}}</a>
 {{/inline}}
 
-<nav class="heading px-5">
-  <div class="row">
-    <h1 class="display-3 my-3">The Sustainability Coop</h1>
-
+<div class="row heading pb-3 pt-0">
+  <div class="col-12">
+    <h1 class="display-3">The Sustainability Coop</h1>
   </div>
-  <div class="row">
+  <div class="col">
     <p>At the University of Maryland</p>
   </div>
   <hr class="mute" />
-  {{> nav pages=pages active=active}}
+</div>
+<nav class="row nav navbar-expand sticky-top justify-content-end text-success bg-dark px-5">
+  {{> nav-vhbs pages=pages active=active}}
 </nav>
