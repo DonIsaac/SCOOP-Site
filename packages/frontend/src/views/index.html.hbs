@@ -1,8 +1,6 @@
-<link rel="stylesheet" href="../../build/css/compiled.css">
+{{#extend "application"}}
+{{#content "body"}}
 <div class="container-fluid pt-0 bg-warning">
-
-	<!-- Header row with banner and navbar -->
-	{{> header1}}
 
 	<!-- Jumbotron/carousel spot -->
 	{{> carousel}}
@@ -11,3 +9,6 @@
 	{{#each sect}}
 	{{> section this}}
 	{{/each}}
+</div>
+{{/content}}
+{{/extend}}

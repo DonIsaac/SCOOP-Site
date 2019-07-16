@@ -18,21 +18,21 @@
  * ================================= IMPORTS ==================================
  * ============================================================================
  */
-const hbs 		  = require('handlebars')
-const layouts   = require('handlebars-layouts')
-const path 		  = require('path')
-const Promise 	= require('bluebird')
-const fs 		    = require('fs')
-const cmd 		  = require('commander')
-const log 		  = require('ulog')('build:docs')
-const os        = require('os')
+const hbs = require('handlebars')
+const layouts = require('handlebars-layouts')
+const path = require('path')
+const Promise = require('bluebird')
+const fs = require('fs')
+const cmd = require('commander')
+const log = require('ulog')('build:docs')
+const os = require('os')
 
 // Async functions are neat
 const [readdir, readFile, access, writeFile] = [
-	fs.readdir,
-	fs.readFile,
-	fs.access,
-	fs.writeFile
+  fs.readdir,
+  fs.readFile,
+  fs.access,
+  fs.writeFile
 ].map(func => Promise.promisify(func))
 
 /*
@@ -74,17 +74,17 @@ const config = {
 
 // Parse command line arguments
 cmd.version('1.0.0')
-	.option('-v, --verbose', 'Displays verbose info messages')
+  .option('-v, --verbose', 'Displays verbose info messages')
   .option('-S, --silent', 'Silent run. Only errors are displayed')
   .option('-D, --debug', 'Debug messages are displayed. Careful, this might flood your screen')
   .option('-f, --config-file [file]', 'Specify the config file to use. Defaults to render.config.json')
   .option('-s, --source [path]', 'Location of source directory relative to the root', null)
-	.option('-o, --out-dir [path]', 'Directory where the rendered site should go. Defaults to "build/"', null)
-	.option('-t, --template-dir [path]', 'Directory where Handlebars templates are located', null)
-	.option('-d, --data-dir [path]', 'Directory where template data files are located', null)
+  .option('-o, --out-dir [path]', 'Directory where the rendered site should go. Defaults to "build/"', null)
+  .option('-t, --template-dir [path]', 'Directory where Handlebars templates are located', null)
+  .option('-d, --data-dir [path]', 'Directory where template data files are located', null)
   .option('-p, --partial-dirs [paths]', 'Comma separated list of Handlebars partial directories', null)
   .option('-l, --layout-dir [paths]', 'Location of layouts directory', null)
-.parse(process.argv);
+  .parse(process.argv);
 
 let config_file_name = cmd.configFile ? path.basename(cmd.configFile) : CONFIG_FILE_NAME
 let config_file_dir = cmd.configFile ? path.dirname(cmd.configFile) : undefined
@@ -127,13 +127,14 @@ if (cmd.partialDirs) {
 // Directory for rendered pages
 console.log(config)
 let { source, outDir } = config
-let { templateDir, dataDir, partialDirs, layoutDir } = config.resources
-const OUT_DIR_PATH        = path.join(root, outDir)
+let { templateDir, dataDir, partialDirs, layoutDir, helperDir } = config.resources
+const OUT_DIR_PATH = path.join(root, outDir)
 // Location of handlebars templates
 const TEMPLATE_SOURCE_DIR = path.join(root, source, templateDir)
 // Location of JSON data
-const TEMPLATE_DATA_DIR   = path.join(root, source, dataDir)
-const LAYOUT_DIR          = path.join(root, source, layoutDir)
+const TEMPLATE_DATA_DIR = path.join(root, source, dataDir)
+const LAYOUT_DIR = path.join(root, source, layoutDir)
+const HELPER_DIR = path.join(root, source, helperDir)
 
 // Location of directories containing partials.
 // Elements of this array can be strings or string arrays.
@@ -148,13 +149,13 @@ const TEMPLATE_PARTIALS_DIRS = partialDirs.map(dir => path.join(root, source, di
  ERROR, WARN, INFO, LOG, DEBUG, TRACE
 */
 if (cmd.silent) {
-	log.level = log.ERROR
+  log.level = log.ERROR
 } else if (cmd.verbose) {
-	log.level = log.LOG
+  log.level = log.LOG
 } else if (cmd.debug) {
-	log.level = log.DEBUG
+  log.level = log.DEBUG
 } else {
-	log.level = log.INFO
+  log.level = log.INFO
 }
 
 log.log(`Template path: ${TEMPLATE_SOURCE_DIR}`)
@@ -167,39 +168,39 @@ log.log(`Output path: ${OUT_DIR_PATH}\n`)
  * I dunno about you, but I love MapReduce
  */
 
- /**
-  * Reads and parses handlebars templates from the template directory.
-  *
-  * The promise resolves with the following shape
-  * ```js
-  * {
-  *    index: "<index.html.hbs file contents>",
-  *    about: "<about.html.hbs file contents>",
-  *    // etc
-  * }
-  * ```
-  *
-  * @returns {Promise<any>} Map of parsed handlebars templates
-  */
+/**
+ * Reads and parses handlebars templates from the template directory.
+ *
+ * The promise resolves with the following shape
+ * ```js
+ * {
+ *    index: "<index.html.hbs file contents>",
+ *    about: "<about.html.hbs file contents>",
+ *    // etc
+ * }
+ * ```
+ *
+ * @returns {Promise<any>} Map of parsed handlebars templates
+ */
 const sources_async = () => Promise.try(() => log.log('Loading templates...'))
-	.then(() => readdir(TEMPLATE_SOURCE_DIR, 'utf-8'))
-	.filter(f => {
-		let split_file = f.split('.')
-		// templates must end in .hbs. Also, ignore partials, which start with '_'
-		return split_file[split_file.length - 1] === 'hbs' && !split_file[0].startsWith('_')
-	})
-	.map(f => { // Read the template
-		return readFile(path.join(TEMPLATE_SOURCE_DIR, f), 'utf-8')
-			.then(contents => {
-				return { page: f.split('.')[0], value: contents }
-			})
+  .then(() => readdir(TEMPLATE_SOURCE_DIR, 'utf-8'))
+  .filter(f => {
+    let split_file = f.split('.')
+    // templates must end in .hbs. Also, ignore partials, which start with '_'
+    return split_file[split_file.length - 1] === 'hbs' && !split_file[0].startsWith('_')
+  })
+  .map(f => { // Read the template
+    return readFile(path.join(TEMPLATE_SOURCE_DIR, f), 'utf-8')
+      .then(contents => {
+        return { page: f.split('.')[0], value: contents }
+      })
 
-	})
-	.reduce((source_map, source) => {
-		source_map[source.page] = source.value
-		return source_map
-	}, Object.create(null))
-	.catch(raise('Error thrown while reading templates'))
+  })
+  .reduce((source_map, source) => {
+    source_map[source.page] = source.value
+    return source_map
+  }, Object.create(null))
+  .catch(raise('Error thrown while reading templates'))
 
 
 
@@ -211,25 +212,25 @@ const sources_async = () => Promise.try(() => log.log('Loading templates...'))
  */
 // Read in the JSON files containing each page's data
 const data_async = () => Promise.try(() => log.log('Loading template data...'))
-	.then(() => readdir(TEMPLATE_DATA_DIR, 'utf-8'))
-	.map(d => { // get the raw data from the file
-		return readFile(path.join(TEMPLATE_DATA_DIR, d), 'utf-8')
-			.then(contents => { // parse the data into an object
-				return JSON.parse(contents)
-			}).catch(err => { // error thrown when reading file, default to empty object
-				log.error('Error thrown while reading JSON file; using empty object')
-				log.warn(err)
-				return {}
-			})
-			.then(data_obj => {
-				return { page: d.split('.')[0], value: data_obj }
-			})
-	})
-	.reduce((data_map, data) => {
-		data_map[data.page] = data.value
-		return data_map
-	}, Object.create(null))
-	.catch(raise('Error thrown while parsing template data'))
+  .then(() => readdir(TEMPLATE_DATA_DIR, 'utf-8'))
+  .map(d => { // get the raw data from the file
+    return readFile(path.join(TEMPLATE_DATA_DIR, d), 'utf-8')
+      .then(contents => { // parse the data into an object
+        return JSON.parse(contents)
+      }).catch(err => { // error thrown when reading file, default to empty object
+        log.error('Error thrown while reading JSON file; using empty object')
+        log.warn(err)
+        return {}
+      })
+      .then(data_obj => {
+        return { page: d.split('.')[0], value: data_obj }
+      })
+  })
+  .reduce((data_map, data) => {
+    data_map[data.page] = data.value
+    return data_map
+  }, Object.create(null))
+  .catch(raise('Error thrown while parsing template data'))
 
 
 
@@ -243,60 +244,75 @@ const data_async = () => Promise.try(() => log.log('Loading template data...'))
  * Register handlebars partials
  */
 const partials_async = () => Promise.each(TEMPLATE_PARTIALS_DIRS, dir => {
-	readdir(dir, 'utf-8') // Get the files in one of the partial directories
-		// Filter out anything that isn't a handlebars file or doesn't start with '_'
-		.filter(partial => partial.startsWith('_') && partial.endsWith('.hbs'))
-		.each(partial => {
-			readFile(path.join(dir, partial), 'utf-8')
+  readdir(dir, 'utf-8') // Get the files in one of the partial directories
+    // Filter out anything that isn't a handlebars file or doesn't start with '_'
+    .filter(partial => partial.startsWith('_') && partial.endsWith('.hbs'))
+    .each(partial => {
+      readFile(path.join(dir, partial), 'utf-8')
         .then(partial_contents => { // Read the contents and register it with handlebars
           let partial_name = partial.split('.')[0]
           partial_name = partial_name.substr(1, partial_name.length - 1)
           log.log(`Registering partial ${partial_name}...`)
-					return hbs.registerPartial(partial_name, partial_contents)
-				})
-		})
+          return hbs.registerPartial(partial_name, partial_contents)
+        })
+    })
 })
-.catch(raise('Error thrown while registering partials'))
+  .catch(raise('Error thrown while registering partials'))
 
-const layouts_async = () => Promise.try('Loading layouts...')
-  .then(readdir(LAYOUT_DIR, 'utf-8'))
+const layouts_async = () => Promise.try(() => log.log('Loading layouts...'))
+  .then(() => readdir(LAYOUT_DIR, 'utf-8'))
   .filter(layout_file => layout_file.endsWith('.hbs'))
   .each(layout_file => {
     readFile(path.join(LAYOUT_DIR, layout_file), 'utf-8')
-    .then(layout_contents => {
-      let layout_name = layout_file.split('.')[0]
-      log.log(`Registering layout ${layout_name}...`)
-      return hbs.registerPartial(layout_name, layout_contents)
-    })
+      .then(layout_contents => {
+        let layout_name = layout_file.split('.')[0]
+        log.log(`Registering layout ${layout_name}...`)
+        return hbs.registerPartial(layout_name, layout_contents)
+      })
   })
+  .catch(raise('Error thrown while registering layouts'))
 
-
+const helpers_async = () => Promise.try(() => log.log('Registering helpers...'))
+  .then(() => readdir(HELPER_DIR), 'utf-8')
+  .filter(helper_file => helper_file.endsWith('.js'))
+  .each(async helper_file => {
+    let helpers = await require(path.join(HELPER_DIR, helper_file))
+    for (let helper in helpers) {
+      let fn = helpers[helper]
+      if (typeof fn === 'function') {
+        log.log(`Registering helper ${helper}...`)
+        hbs.registerHelper(helper, fn)
+      }
+    }
+  })
+  .catch(raise('Error thrown while registering helpers'))
 
 
 // const pages = []
-Promise.join(sources_async(), data_async(), partials_async(), layouts_async(),
-async (sources, data) => {
-  log.log('Rendering templates...')
-  log.debug(`Partials: ${JSON.stringify(Object.keys(hbs.partials))}`)
-  log.debug(`Pages: ${Object.keys(sources)}`)
-	for (let page_name in sources) {
-		let template = hbs.compile(sources[page_name])
-		let page;
-		try { // Error thrown if template contains a syntax error
-			page = template(data[page_name] || {})
-		} catch (err) {
-      log.error(`Syntax error in page ${page_name}:\n${err.message}`)
-      log.debug(err.stack)
-			process.exit(1)
-		}
-		let page_path = path.join(OUT_DIR_PATH, page_name + '.html')
-		log.log(`Rendering ${page_name}...`)
-		// pages.push(await writeFile(page_path, page))
-		await writeFile(page_path, page).then(() => log.log('Finished'))
+Promise.join(sources_async(), data_async(), partials_async(), layouts_async(), helpers_async(),
+  async (sources, data) => {
+    log.log('Rendering templates...')
+    log.debug(`Partials: ${JSON.stringify(Object.keys(hbs.partials))}`)
+    log.debug(`Pages: ${Object.keys(sources)}`)
+    log.debug(`Helpers: ${JSON.stringify(hbs.helpers)}`)
+    for (let page_name in sources) {
+      let template = hbs.compile(sources[page_name])
+      let page;
+      try { // Error thrown if template contains a syntax error
+        page = template(data[page_name] || {})
+      } catch (err) {
+        log.error(`Syntax error in page ${page_name}:\n${err.message}`)
+        log.debug(err.stack)
+        process.exit(1)
+      }
+      let page_path = path.join(OUT_DIR_PATH, page_name + '.html')
+      log.log(`Rendering ${page_name}...`)
+      // pages.push(await writeFile(page_path, page))
+      await writeFile(page_path, page).then(() => log.log('Finished'))
 
-	}
-})
-	.then(() => log.info('Finished rendering.'))
+    }
+  })
+  .then(() => log.info('Finished rendering.'))
 
 // Promise.all(pages)
 // .then(() => console.log('Successfully saved all rendered pages'))
@@ -308,10 +324,10 @@ async (sources, data) => {
  * ============================================================================
  */
 function raise(msg) {
-	return err => {
-		log.error(msg)
-		log.error(err)
-	}
+  return err => {
+    log.error(msg)
+    log.error(err)
+  }
 }
 
 /**
@@ -328,10 +344,10 @@ function resolveRoot(root = process.cwd()) {
   let found = false
 
   for (
-                                ;   // start at specified root
+    ;   // start at specified root
     !found && root !== systemRoot;  // Stop searching if config file is found or we reach the root dir
     root = path.resolve(root, '..') // Go to parent directory, search again
-  ){
+  ) {
     /** @type {String[]} */
     let filesInDir = fs.readdirSync(root)
 

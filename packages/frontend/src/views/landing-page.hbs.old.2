@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Sustainability Cooperative at the University of Maryland</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"
+		defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"
+		defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"
+		defer></script>
+	<link rel="stylesheet" href="../css/compiled.css">
+</head>
+
+<body class="container-fluid pt-0 bg-warning">
+	<!-- Header row with name and uni -->
+
+	{{!-- Jumbotron/carousel spot --}}
+	{{> carousel}}
+
+	<!-- End of landing content, start of sections -->
+	{{@each sections}}
+		{{> section this}}
+	{{/each}}
+
+	<section class="about row bg-primary text-light">
+		<div class="container">
+			<h2 class="title">About</h2>
+			<p class="">
+				Praesent quis porttitor risus, a interdum ex. Vestibulum ante ipsum primis in faucibus orci luctus
+				et ultrices posuere cubilia Curae; In tristique dictum nibh, suscipit maximus elit. Fusce porta
+				condimentum leo vel viverra. Suspendisse elementum consequat tortor, sed blandit mauris vulputate
+				aliquam. Aenean vel faucibus dui, in interdum dolor. Cras consequat suscipit velit, sed porta ante
+				eleifend eget. Duis egestas nec nisl sit amet varius. Praesent quis purus eu libero pulvinar congue
+				sed non eros.
+			</p>
+		</div>
+	</section>
+	<section class="row text-dark">
+		<div class="container">
+			<h2 class="title">Members</h2>
+			<p class="">
+				Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin
+				sit amet tincidunt libero. Fusce ultricies arcu ut lorem bibendum congue. Ut tempus felis ut posuere
+				consequat. Nullam ac semper urna. Mauris ac neque commodo, lobortis eros eu, molestie turpis. Donec
+				bibendum diam nec volutpat lobortis. In purus ligula, condimentum eu sodales eget, rutrum pretium
+				magna.
+			</p>
+		</div>
+	</section>
+	<section class="row bg-primary text-light">
+		<div class="container">
+			<h2 class="title">Get Involved!</h2>
+			<p class="">
+				Sed efficitur, diam eget ultricies venenatis, leo velit faucibus sapien, in feugiat nunc nulla quis
+				massa. Pellentesque vulputate eu massa eu porttitor. Donec lacinia mattis cursus. Morbi sit amet
+				arcu felis. Aliquam erat volutpat. Ut tincidunt finibus libero et elementum. Cras molestie feugiat
+				nisl id aliquet. Sed tincidunt tincidunt metus, ac convallis turpis finibus et. Curabitur suscipit
+				bibendum eros ut.
+			</p>
+		</div>
+	</section>
+</body>
+
+</html>
