@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "data": {
         "carousel": {
             "carousel-item": [
@@ -13,4 +14,12 @@
             ]
         }
     }
+=======
+  "pages": [
+    { "text": "Home", "url": "." },
+    { "text": "About", "url": "./about.html" },
+    { "text": "Calendar", "url": "./calendar.html" }
+  ],
+  "active": "Home"
+>>>>>>> b71707e0812c9e33148ecf46b85c9eb5c1a7ad91
 }

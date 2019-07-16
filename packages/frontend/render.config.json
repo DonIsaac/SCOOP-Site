@@ -3,8 +3,12 @@
   "outDir": "./build",
   "resources": {
     "templateDir": "views/",
-    "partialDirs": ["partials/"],
+    "partialDirs": [
+      "partials/",
+      "utilities/"
+    ],
     "dataDir": "data/",
-    "layoutDir": "layouts/"
+    "layoutDir": "layouts/",
+    "helperDir": "helpers"
   }
 }
