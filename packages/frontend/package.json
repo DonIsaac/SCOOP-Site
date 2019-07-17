@@ -7,7 +7,7 @@
     "render": "render.js"
   },
   "scripts": {
-    "build": "./bin/render.js --debug && npm run sass:compile",
+    "build": ".\"/bin/render.js\" --debug && npm run sass:compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:compile": "sass src/css/input.scss build/css/compiled.css"
   },
