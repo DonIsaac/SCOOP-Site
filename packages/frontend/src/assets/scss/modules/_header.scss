@@ -1,0 +1,9 @@
+@import "variables";
+
+.nav-link {
+  &:hover {
+    color: darken(map-get($theme-colors, "primary"), 20%);
+    transition: color 0.5s;
+    -webkit-transition: color 0.5s;
+  }
+}

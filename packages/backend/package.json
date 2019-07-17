@@ -4,9 +4,10 @@
   "description": "Website for the Sustainability Co-op (SCOOP) at UMD",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Not yet implemented\"",
+    "start": "pm2 start ts-node -- -P tsconfig.json ./src/server.ts",
     "start:dev": "ts-node src/server.ts",
-    "test": "mocha",
+    "test": "jest",
+    "monit": "pm2 monit",
     "sass:compile": "node-sass --include-path sass ../frontend/css/input.scss ../frontend/css/compiled.css"
   },
   "author": "Open Sourcery",

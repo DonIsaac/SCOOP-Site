@@ -25,6 +25,8 @@
     "ulog": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.6.2"
+    "@types/node": "^12.6.2",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
   }
 }

@@ -125,7 +125,7 @@ if (cmd.partialDirs) {
 // TODO: Make this suck less
 // console.dir(config.partialDirs)
 // Directory for rendered pages
-console.log(config)
+log.debug(config)
 let { source, outDir } = config
 let { templateDir, dataDir, partialDirs, layoutDir, helperDir } = config.resources
 const OUT_DIR_PATH = path.join(root, outDir)
@@ -253,6 +253,7 @@ const partials_async = () => Promise.each(TEMPLATE_PARTIALS_DIRS, dir => {
           let partial_name = partial.split('.')[0]
           partial_name = partial_name.substr(1, partial_name.length - 1)
           log.log(`Registering partial ${partial_name}...`)
+          partial_contents.page_name = partial_contents.page_name || partial_name
           return hbs.registerPartial(partial_name, partial_contents)
         })
     })
