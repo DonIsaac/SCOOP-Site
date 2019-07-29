@@ -1,14 +1,58 @@
 {{#extend "application" this}}
 {{#content "body"}}
-<div class="container-fluid pt-0 bg-warning">
+<div class="container-fluid pt-0">
 
-	<!-- Jumbotron/carousel spot -->
-	{{> carousel}}
+  <!-- Jumbotron/carousel spot -->
+  {{> carousel}}
 
-	<!-- End of landing content, start of sections -->
-	{{#each sect}}
-	{{> section this}}
-	{{/each}}
+  <!-- End of landing content, start of sections -->
+  {{#embed "section" bg="#fff" title="Foo"}}
+  {{#content "body"}}
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac sollicitudin lorem. Cras pretium tristique eros,
+    sit amet euismod nulla. Cras scelerisque feugiat vehicula. Donec hendrerit eros ultrices lacus semper pharetra. In
+    mollis tortor non rhoncus accumsan. Nunc lacus lectus, elementum sed auctor nec, congue non quam. Pellentesque
+    blandit eu sapien in viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    Aenean non ultricies mauris. Morbi ex dui, iaculis sed enim eget, tristique efficitur dolor. Aenean sed augue id
+    elit porta dictum sed ac urna. Sed sagittis efficitur cursus.
+  </p>
+  <p>
+    Sed aliquet lobortis mauris ac tristique. Nunc euismod tristique leo, sed bibendum elit tempor eget. Vivamus ornare,
+    mi eget dignissim vestibulum, arcu odio pharetra enim, quis maximus justo metus at nunc. Integer sagittis et orci at
+    pretium. Donec arcu tellus, volutpat ac magna at, mollis interdum nisl. Aliquam erat volutpat. Nullam nibh tortor,
+    dictum eget volutpat vitae, viverra et est. Nulla rhoncus placerat tellus id dictum.
+  </p>
+  {{/content}}
+  {{/embed}}
+
+  {{#embed "section" bg="primary" title="Bar" font-color="white"}}
+  {{#content "body"}}
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac sollicitudin lorem. Cras pretium tristique eros,
+    sit amet euismod nulla. Cras scelerisque feugiat vehicula. Donec hendrerit eros ultrices lacus semper pharetra. In
+    mollis tortor non rhoncus accumsan. Nunc lacus lectus, elementum sed auctor nec, congue non quam. Pellentesque
+    blandit eu sapien in viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    Aenean non ultricies mauris. Morbi ex dui, iaculis sed enim eget, tristique efficitur dolor. Aenean sed augue id
+    elit porta dictum sed ac urna. Sed sagittis efficitur cursus.
+  </p>
+  <p>
+    Sed aliquet lobortis mauris ac tristique. Nunc euismod tristique leo, sed bibendum elit tempor eget. Vivamus ornare,
+    mi eget dignissim vestibulum, arcu odio pharetra enim, quis maximus justo metus at nunc. Integer sagittis et orci at
+    pretium. Donec arcu tellus, volutpat ac magna at, mollis interdum nisl. Aliquam erat volutpat. Nullam nibh tortor,
+    dictum eget volutpat vitae, viverra et est. Nulla rhoncus placerat tellus id dictum.
+  </p>
+  {{/content}}
+  {{/embed}}
+
+  {{#embed "section" title="Subscribe To Our Newsletter"}}
+  {{#content "body"}}
+    <div class="row justify-content-center newsletter">
+      <form>
+        <input type="text" placeholder="e-mail">
+      </form>
+    </div>
+  {{/content}}
+  {{/embed}}
 </div>
 {{/content}}
 {{/extend}}

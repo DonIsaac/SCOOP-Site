@@ -13,6 +13,7 @@ build/
 *.log
 *.tmp
 .sass-cache/
+._*
 
 # System Files
 .DS_Store

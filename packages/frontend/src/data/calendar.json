@@ -1,9 +1,9 @@
 {
   "pages": [
-    { "text": "Home", "url": "./index" },
+    { "text": "Home", "url": "./index.html" },
     { "text": "About", "url": "./about.html" },
     { "text": "Calendar", "url": "./calendar.html" },
     { "text": "Members", "url": "./members.html"}
   ],
-  "active": "Home"
+  "active": "Calendar"
 }

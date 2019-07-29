@@ -1,8 +1,9 @@
-<section class="{{class}} row bg-{{bg}} text-{{font-color}}">
+<section class="{{class}} row bg-{{bg}} text-{{font-color}} py-4">
   <div class="container">
-    <h2 class="title">{{title}}</h2>
-    <p>
-      {{body}}
-    </p>
+    <h2 class="title display-3 mb-4">{{title}}</h2>
+    <div class="row">
+    {{#block "body"}}
+    {{/block}}
+    </div>
   </div>
 </section>

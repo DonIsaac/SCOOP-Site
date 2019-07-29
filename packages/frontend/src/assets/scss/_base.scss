@@ -1,7 +1,5 @@
 // Module imports
 @import "modules/variables";
-@import "modules/landing";
-@import "modules/carousel";
 @import "modules/footer";
 @import "modules/header";
 
@@ -9,3 +7,12 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 @import "modules/overrides";
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+/*
+body {
+  padding-top: 3rem;
+}
+ */

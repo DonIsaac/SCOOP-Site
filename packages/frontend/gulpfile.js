@@ -23,8 +23,9 @@ function dev(cb) {
   cb()
 }
 
-exports['build:js']   = build_js
-exports['build:assets']  = gulp.parallel(build_css, build_assets)
-exports['build']      = gulp.parallel(build_js, build_css, build_assets)
-exports['dev']        = gulp.series(exports['build'], open_index, dev)
-exports.default       = exports['build']
+exports['build:js']       = build_js
+exports['build:assets']   = gulp.parallel(build_css, build_assets)
+exports['build']          = gulp.parallel(build_js, build_css, build_assets)
+exports['dev']            = gulp.series(exports['build'], open_index, dev)
+exports['open']           = open_index
+exports.default           = exports['build']
