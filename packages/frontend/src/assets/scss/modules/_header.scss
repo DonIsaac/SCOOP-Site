@@ -2,7 +2,7 @@
 
 .nav-link {
   &:hover {
-    color: darken(map-get($theme-colors, "primary"), 20%);
+    color: darken(map-get($theme-colors, "primary"), 10%);
     transition: color 0.5s;
     -webkit-transition: color 0.5s;
   }

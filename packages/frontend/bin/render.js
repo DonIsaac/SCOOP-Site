@@ -213,18 +213,35 @@ const sources_async = () => Promise.try(() => log.log('Loading templates...'))
 // Read in the JSON files containing each page's data
 const data_async = () => Promise.try(() => log.log('Loading template data...'))
   .then(() => readdir(TEMPLATE_DATA_DIR, 'utf-8'))
-  .map(d => { // get the raw data from the file
-    return readFile(path.join(TEMPLATE_DATA_DIR, d), 'utf-8')
-      .then(contents => { // parse the data into an object
-        return JSON.parse(contents)
-      }).catch(err => { // error thrown when reading file, default to empty object
-        log.error('Error thrown while reading JSON file; using empty object')
-        log.warn(err)
-        return {}
-      })
-      .then(data_obj => {
-        return { page: d.split('.')[0], value: data_obj }
-      })
+  .filter(filename => {
+    let split_name = filename.split('.')
+    let filetype = filename.split('.')[split_name.length -1]
+    // data files must end in .json or .js
+    let valid = ['json', 'js'].includes(filetype)
+    log.debug(`data: controller file ${filename} ends with ${filetype} is ${valid ? 'valid' : 'invalid'}`)
+    return valid
+  })
+  .map(async d => { // get the raw data from the file
+    let data_path = path.join(TEMPLATE_DATA_DIR, d)
+    if (d.endsWith('.json')) { // Controller is a JSON object, parse it, add it to map.
+      return readFile(data_path, 'utf-8')
+        .then(contents => { // parse the data into an object
+          return JSON.parse(contents)
+        }).catch(err => { // error thrown when reading file, default to empty object
+          log.error('Error thrown while reading JSON file; using empty object')
+          log.warn(err)
+          return {}
+        })
+        .then(data_obj => {
+          return { page: d.split('.')[0], value: data_obj }
+        })
+      } else if (d.endsWith('.js')) { // data is a script that exports a controller object
+        let data_exports = await require(data_path)
+        let controller = data_exports.default || data_exports // handle ES6 exports
+        return { page: d.split('.')[0], value: controller }
+      } else { // should be unreachable, acts as a sanity check
+        throw new Error('Invalid data filetype.')
+      }
   })
   .reduce((data_map, data) => {
     data_map[data.page] = data.value
