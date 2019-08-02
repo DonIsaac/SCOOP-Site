@@ -3,27 +3,54 @@
 
 /* Carousel base class */
 .carousel {
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  color: map-get($theme-colors, "light");
+
+  .carousel-inner {
+    // width: 100vw;
+    // padding-left: 0;
+    // padding-right: 0;
+  }
   // margin-bottom: 4rem;
-  img {
-    background-repeat: no-repeat;
-    background-size: cover;
+  .carousel-item {
+    height: 75vh; /* Declare heights because of positioning of img element */
+
+    .container-fluid {
+      padding: 0;
+    }
+
+    img {
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(70%);
+      width: 100%;
+      //max-width: 100vw;
+      overflow-x: hidden;
+    }
   }
 
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0px 0px 5px #fff;
+    //background-color: rgba(255, 255, 255, 0.7);
+    // box-shadow: 0px 0px 5px #fff;
     bottom: 3rem;
     z-index: 10;
+    padding-top: 5em;
+    padding-bottom: 3em;
 
+    .caption-title {
+      font-size: 3em;
+      margin-bottom: 2em;
+      animation-delay: 0.5s;
+    }
 
+    .caption-body {
+      font-size: 2em;
+      animation-delay: 0.5s;
+    }
   }
-}
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-  // background-color:;
 }
 
 /* MARKETING CONTENT

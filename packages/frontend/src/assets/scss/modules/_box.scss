@@ -1,0 +1,38 @@
+
+.box {
+  padding: 50px 20px;
+  margin-bottom: 50px;
+  background-color: map-get($theme-colors, "light");
+  color: map-get($theme-colors, "primary");
+  border: 2px solid darken(map-get($theme-colors, "primary"), 10%);
+  box-shadow: 2px 2px 3px 3px darken(map-get($theme-colors, "primary"), 7%);
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  // position: relative;
+
+  .box-title {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 24px;
+  }
+
+  .box-icon {
+    position: absolute;
+    top: -36px;
+    left: calc(50% - 36px);
+    display: flex;
+    border: 6px solid map-get($theme-colors, "primary");
+    background-color: map-get($theme-colors, "light");
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 72px;
+    height: 72px;
+    box-shadow: 2px 2px 3px 3px darken(map-get($theme-colors, "primary"), 7%);
+    font-size: 1.5em;
+
+    border-radius: 50%;
+  }
+}

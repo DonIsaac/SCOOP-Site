@@ -1,0 +1,23 @@
+@import "box";
+
+.cal-box {
+  @extend .box;
+  padding: 30px 20px;
+
+  .date-container {
+    position: relative;
+    min-width: 1.25em;
+  }
+  .icon {
+    font-size: 5em;
+  }
+
+  .cal-date {
+    position: absolute;
+    // font-size: 3em;
+    // left: .3em;
+    // top: .25em;
+    width: 1.5em;
+    text-align: center;
+  }
+}

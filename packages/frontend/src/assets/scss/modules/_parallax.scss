@@ -1,7 +1,7 @@
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
    * 100vh is the full height of the viewport. */
-  height: 100vh;
+  height: 50vh;
   /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
   overflow-x: hidden;
   /* Enable scrolling on the page. */
@@ -25,6 +25,7 @@
 }
 
 .parallax::after {
+  background-image: url("https://picsum.photos/id/10/2500/1667");
   /* Display and position the pseudo-element */
   content: " ";
   position: absolute;

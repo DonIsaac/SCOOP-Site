@@ -1,9 +1,22 @@
 @import "variables";
 
-.nav-link {
-  &:hover {
-    color: darken(map-get($theme-colors, "primary"), 10%);
-    transition: color 0.5s;
-    -webkit-transition: color 0.5s;
+.heading {
+  background-color: map-get($theme-colors, "primary");
+  width: 100%;
+  a {
+    color: map-get($theme-colors, "light");
+    transition: color 0.5s ease-out;
+    -webkit-transition: color 0.5s ease-out;
+
+    &:hover {
+      color: darken(white, 20%);
+      transition: color 0.5s ease-in;
+      -webkit-transition: color 0.5s ease-in;
+    }
   }
+
+.nav-link {
+  font-size: .90em;
+}
+
 }

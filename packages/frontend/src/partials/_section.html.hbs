@@ -1,7 +1,13 @@
 <section class="{{class}} row bg-{{bg}} text-{{font-color}} py-4">
+  {{#if fluid}}
+  <div class="container-fluid">
+  {{else}}
   <div class="container">
-    <h2 class="title display-3 mb-4">{{title}}</h2>
-    <div class="row">
+  {{/if}}
+    {{#if title}}
+      <h2 class="title display-3 mb-4">{{title}}</h2>
+      <div class="row">
+    {{/if}}
     {{#block "body"}}
     {{/block}}
     </div>

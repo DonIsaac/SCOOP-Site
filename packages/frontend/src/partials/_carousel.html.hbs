@@ -1,10 +1,10 @@
 {{#*inline "carousel-item"}}
 <div class="carousel-item {{#if active}}active{{/if}}">
-  <div class="container">
-    <img src="{{img}}" class="d-block w-100" alt="carousel-image">
-    <div class="carousel-caption d-none d-md-block py-1">
-      <h5 class="text-primary">{{title}}</h5>
-      <p class="text-primary mb-1">{{@partial-block}}</p>
+  <div class="container-fluid">
+    <img src="{{img}}" class="d-block" alt="carousel-image">
+    <div class="carousel-caption d-none d-md-block">
+      <h5 class="caption-title animated fadeInDown">{{title}}</h5>
+      <p class="caption-body animated fadeInUp">{{{@partial-block}}}</p>
       {{!-- <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a> --}}
     </div>
   </div>
@@ -12,7 +12,7 @@
 {{/inline}}
 
 <!-- START OF CAROUSEL CONFIGURATION -->
-<div class="row carousel slide bg-primary" id="mainCarousel" data-ride="false" data-pause="hover"
+<div class="row carousel slide bg-primary text-light" id="mainCarousel" data-ride="carousel" data-pause="hover"
   data-keyboard="true">
   <!-- Indicators - Li'l bois on the bottom that tell you which carousel item you're on -->
   <ol class="carousel-indicators">
@@ -25,51 +25,16 @@
 
 
     {{#>carousel-item active="true" title="SCOOP Image 1" img="assets/img/carousel-1.jpg"}}
-    Nunc ut purus neque. Morbi fringilla ipsum mi, a vulputate mauris auctor vel
+      Morbi fringilla ipsum mi, a vulputate mauris auctor vel
     {{/carousel-item}}
 
     {{#>carousel-item active=0 title="SCOOP Image 2" img="assets/img/carousel-2.jpg"}}
-    In tincidunt, ipsum in elementum fermentum, arcu leo pharetra urna, sit amet commodo tortor massa eu augue.
+      In tincidunt, ipsum in elementum fermentum, arcu leo pharetra
     {{/carousel-item}}
 
     {{#>carousel-item active=0 title="SCOOP Image 3" img="assets/img/carousel-3.jpg"}}
-    Morbi in quam nec risus fermentum molestie a vel lacus. Nulla facilisi. Aliquam scelerisque, eros ut porttitor
-    laoreet, libero felis luctus est, vitae interdum
+      Morbi in quam nec risus fermentum molestie a vel lacus
     {{/carousel-item}}
-    <!-- The second item -->
-    {{!-- <div class="carousel-item">
-      <div class="container">
-        <div class="carousel-caption">
-          <h5>In rhoncus elit et diam feugiat varius.</h5>
-          <p class="lead">
-            Nunc ut purus neque. Morbi fringilla ipsum mi, a vulputate mauris auctor vel. In
-            tincidunt, ipsum in elementum fermentum, arcu leo pharetra urna, sit amet commodo tortor
-            massa eu augue. Morbi in quam nec risus fermentum molestie a vel lacus. Nulla facilisi.
-            Aliquam scelerisque, eros ut porttitor laoreet, libero felis luctus est, vitae interdum
-            arcu orci molestie ipsum. Sed ac dapibus enim. Nulla finibus a lorem a mollis. Quisque
-            ante orci, efficitur ac pretium a, dictum a enim. Sed condimentum turpis in est commodo
-            aliquet eu tempus justo.
-          </p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-        </div>
-      </div>
-    </div> --}}
-    <!-- Item the third -->
-    {{!-- <div class="carousel-item">
-      <div class="container">
-        <div class="carousel-caption">
-          <h5>Fusce vulputate ante at magna scelerisque convallis.</h5>
-          <p class="lead">
-            Suspendisse potenti. Curabitur dapibus tincidunt est, ac cursus velit malesuada sed.
-            Quisque sodales enim id felis consectetur mattis. Fusce bibendum ac elit vel rutrum.
-            Fusce dui nisl, tristique ac maximus a, hendrerit at purus. Mauris efficitur lectus quis
-            enim facilisis, vitae tincidunt odio maximus. Donec fermentum fermentum sem, vel
-            scelerisque ante maximus in. Pellentesque congue interdum erat, et sodales nisl
-            imperdiet faucibus. Fusce mollis felis sed efficitur vestibulum. </p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-        </div>
-      </div>
-    </div> --}}
   </div>
   <!-- End of inner carousel, start of controls -->
   <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">

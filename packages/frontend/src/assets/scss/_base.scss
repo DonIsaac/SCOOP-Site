@@ -2,17 +2,33 @@
 @import "modules/variables";
 @import "modules/footer";
 @import "modules/header";
+@import "modules/box";
 
 // Bootstrap Imports
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/animate.css/animate.min.css";
 
 @import "modules/overrides";
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-/*
+
+html,
 body {
-  padding-top: 3rem;
+  // padding-top: 3rem;
+  width: 100%;
 }
- */
+
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}

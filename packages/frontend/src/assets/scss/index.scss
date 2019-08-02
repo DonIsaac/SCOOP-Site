@@ -1,5 +1,6 @@
 @import "base";
 @import "modules/carousel";
+@import "modules/cal-box";
 
 .newsletter {
   form {
@@ -10,4 +11,16 @@
     border-bottom: 1px solid black;
     width: 100%;
   }
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+section {
+  padding-top: 3em;
+  padding-bottom: .5em;
 }

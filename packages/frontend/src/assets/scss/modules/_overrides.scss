@@ -3,3 +3,13 @@ body {
   font-family: 'Acme', sans-serif !important;
   font-size: 1.25rem;
 }
+
+.btn {
+  font-size: 1.25rem;
+}
+
+.btn-outline-light {
+  &:hover {
+    color: map-get($theme-colors, "primary");
+  }
+}

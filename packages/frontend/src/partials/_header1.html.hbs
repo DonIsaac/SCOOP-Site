@@ -3,13 +3,11 @@
   <a class="nav-link {{#if active}}active{{/if}}" href="{{url}}">{{@partial-block}}</a>
 {{/inline}}
 
-<nav class="heading px-5 pt-5">
+<nav class="heading px-5 pt-4">
   <div class="row">
-    <h1 class="display-3">The Sustainability Cooperative</h1>
+    <a href="index.html">
+      <h1 class="display-4 text-uppercase">The Sustainability Cooperative</h1>
+    </a>
   </div>
-  <div class="row">
-    <p>At the University of Maryland</p>
-  </div>
-  <hr class="mute" />
   {{> nav pages=pages active=active}}
 </nav>

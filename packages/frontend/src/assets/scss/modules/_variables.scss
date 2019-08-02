@@ -4,6 +4,7 @@
 
  $theme-colors: (
   "primary": #3fad00,
-  "danger": #ff4136
+  "danger": #ff4136,
+  "light": lighten(desaturate(#3fad00, 55%), 57%) //#a1da7f-ish
 );
 

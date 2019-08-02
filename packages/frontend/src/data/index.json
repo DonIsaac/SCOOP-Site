@@ -5,5 +5,18 @@
     { "text": "Calendar", "url": "./calendar.html" },
     { "text": "Members", "url": "./members.html"}
   ],
-  "active": "Home"
+  "active": "Home",
+  "activities": [
+    { "title": "Hikes", "text": "We go hiking around college park and the appalachian trail at least once a month." },
+    { "title": "Socials", "text": "Member organizations come together bi-annualy for a club social. Come meet new people and make some connections!" },
+    { "title": "Volunteering", "text": "We do a wide range of community service in the College Park area. Some examples are watershed cleanups, invasive species removal, and working soup kitchens." }
+  ],
+  "membership": [
+    { "icon": "fas fa-pizza-slice", "title": "Pizza", "text": "Free pizza every friday", "delay":"0.0s" },
+    { "icon": "fas fa-dove", "title": "Birds", "text": "We have birds and stuff","delay": "0.1s" },
+    { "icon": "fas fa-feather-alt", "title": "Feathers", "text": "Some more stuff members get", "delay": "0.2s" },
+    { "icon": "fa fa-paper-plane", "title": "Paper Planes", "text": "Paper airplane throwing competitions", "delay": "0.0s" },
+    { "icon": "fas fa-flask", "title": "Science!", "text": "We do science and stuff", "delay": "0.1s" },
+    { "icon": "fas fa-running", "title": "Exit", "text": "Please proceed to the nearest exit portal", "delay": "0.2s" }
+  ]
 }

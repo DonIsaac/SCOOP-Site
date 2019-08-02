@@ -1,58 +1,85 @@
-{{#extend "application" this}}
+{{#extend "application"}}
+{{#content "head"}}
+<link rel="stylesheet" href="assets/css/index.css">
+<script src="assets/lib/ical/ical.min.js"></script>
+{{/content}}
 {{#content "body"}}
-<div class="container-fluid pt-0">
 
-  <!-- Jumbotron/carousel spot -->
-  {{> carousel}}
-
-  <!-- End of landing content, start of sections -->
-  {{#embed "section" bg="#fff" title="Foo"}}
-  {{#content "body"}}
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac sollicitudin lorem. Cras pretium tristique eros,
-    sit amet euismod nulla. Cras scelerisque feugiat vehicula. Donec hendrerit eros ultrices lacus semper pharetra. In
-    mollis tortor non rhoncus accumsan. Nunc lacus lectus, elementum sed auctor nec, congue non quam. Pellentesque
-    blandit eu sapien in viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-    Aenean non ultricies mauris. Morbi ex dui, iaculis sed enim eget, tristique efficitur dolor. Aenean sed augue id
-    elit porta dictum sed ac urna. Sed sagittis efficitur cursus.
-  </p>
-  <p>
-    Sed aliquet lobortis mauris ac tristique. Nunc euismod tristique leo, sed bibendum elit tempor eget. Vivamus ornare,
-    mi eget dignissim vestibulum, arcu odio pharetra enim, quis maximus justo metus at nunc. Integer sagittis et orci at
-    pretium. Donec arcu tellus, volutpat ac magna at, mollis interdum nisl. Aliquam erat volutpat. Nullam nibh tortor,
-    dictum eget volutpat vitae, viverra et est. Nulla rhoncus placerat tellus id dictum.
-  </p>
-  {{/content}}
-  {{/embed}}
-
-  {{#embed "section" bg="primary" title="Bar" font-color="white"}}
-  {{#content "body"}}
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac sollicitudin lorem. Cras pretium tristique eros,
-    sit amet euismod nulla. Cras scelerisque feugiat vehicula. Donec hendrerit eros ultrices lacus semper pharetra. In
-    mollis tortor non rhoncus accumsan. Nunc lacus lectus, elementum sed auctor nec, congue non quam. Pellentesque
-    blandit eu sapien in viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-    Aenean non ultricies mauris. Morbi ex dui, iaculis sed enim eget, tristique efficitur dolor. Aenean sed augue id
-    elit porta dictum sed ac urna. Sed sagittis efficitur cursus.
-  </p>
-  <p>
-    Sed aliquet lobortis mauris ac tristique. Nunc euismod tristique leo, sed bibendum elit tempor eget. Vivamus ornare,
-    mi eget dignissim vestibulum, arcu odio pharetra enim, quis maximus justo metus at nunc. Integer sagittis et orci at
-    pretium. Donec arcu tellus, volutpat ac magna at, mollis interdum nisl. Aliquam erat volutpat. Nullam nibh tortor,
-    dictum eget volutpat vitae, viverra et est. Nulla rhoncus placerat tellus id dictum.
-  </p>
-  {{/content}}
-  {{/embed}}
-
-  {{#embed "section" title="Subscribe To Our Newsletter"}}
-  {{#content "body"}}
-    <div class="row justify-content-center newsletter">
-      <form>
-        <input type="text" placeholder="e-mail">
-      </form>
+{{>carousel}}
+<section class="bg-primary">
+  <div class="container">
+    <div class="row justify-content-center text-light">
+      <h2 class="display-3">About Us</h2>
+      <p>
+        Praesent quis porttitor risus, a interdum ex. Vestibulum ante ipsum primis in faucibus orci luctus
+        et ultrices posuere cubilia Curae; In tristique dictum nibh, suscipit maximus elit. Fusce porta
+        condimentum leo vel viverra. Suspendisse elementum consequat tortor, sed blandit mauris vulputate
+        aliquam. Aenean vel faucibus dui, in interdum dolor. Cras consequat suscipit velit, sed porta ante
+        eleifend eget. Duis egestas nec nisl sit amet varius. Praesent quis purus eu libero pulvinar congue
+        sed non eros
+      </p>
+      <button type="button" class="btn btn-outline-light">Join Us</button>
     </div>
-  {{/content}}
-  {{/embed}}
-</div>
+  </div>
+</section>
+<section class="bg-primary">
+  <div class="container text-light">
+    <div class="row text-center justify-content-center">
+      <h2 class="display-3">What We Do</h2>
+    </div>
+    <div class="row justify-content-center">
+      {{#each activities}}
+      <div class="col-lg-4">
+        {{>box title=title text=text}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="bg-primary">
+  <div class="container">
+    <div class="row justify-content-center text-light text-center">
+      <h2 class="display-3">Membership Benefits</h2>
+    </div>
+    <div class="row row-eq-height mt-5">
+      {{#each membership}}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        {{>box icon=icon title=title text=text}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="row justify-content-center">
+      <p class="text-light">
+        Check out all of our awesome benefits!
+      </p>
+    </div>
+    <div class="row justify-content-center text-light">
+      <a href="#" class="btn btn-outline-light">Become a Member</a>
+    </div>
+  </div>
+</section>
+<section class="bg-primary">
+  <div class="container">
+    <div class="row justify-content-center text-light text-center">
+      <h2 class="display-3">Upcoming Events</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        {{>cal-box}}
+      </div>
+      <div class="col-lg-6">
+        {{>cal-box}}
+      </div>
+    </div>
+  </div>
+</section>
+{{!-- TODO - CONTACT SECTION --}}
+{{/content}}
+{{#content "foot"}}
+<script src="assets/js/index.js" type="application/javascript"></script>
+<script>
+  new WOW().init();
+</script>
 {{/content}}
 {{/extend}}
