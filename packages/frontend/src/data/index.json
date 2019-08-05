@@ -9,7 +9,8 @@
   "activities": [
     { "title": "Hikes", "text": "We go hiking around college park and the appalachian trail at least once a month." },
     { "title": "Socials", "text": "Member organizations come together bi-annualy for a club social. Come meet new people and make some connections!" },
-    { "title": "Volunteering", "text": "We do a wide range of community service in the College Park area. Some examples are watershed cleanups, invasive species removal, and working soup kitchens." }
+    { "title": "Volunteering", "text": "We do a wide range of community service in the College Park area. Some examples are watershed cleanups, invasive species removal, and working soup kitchens." },
+    { "title": "Sports", "text": "We play a lot of sports ball because we're athletic and stuff."}
   ],
   "membership": [
     { "icon": "fas fa-pizza-slice", "title": "Pizza", "text": "Free pizza every friday", "delay":"0.0s" },
