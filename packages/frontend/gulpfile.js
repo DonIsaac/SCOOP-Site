@@ -2,7 +2,7 @@ const gulp = require('gulp')
 var sass = require('gulp-sass');
 const { exec } = require('child_process')
 
-const build_js = () => exec('./bin/render.js')
+const build_js = () => pipe_output(exec('./bin/render.js'), 2)
 // const build_css = () => exec('sass src/css/input.scss build/css/compiled.css')
 const build_css = () =>
   gulp.src('src/assets/scss/**/*.scss')
@@ -29,3 +29,26 @@ exports['build']          = gulp.parallel(build_js, build_css, build_assets)
 exports['dev']            = gulp.series(exports['build'], open_index, dev)
 exports['open']           = open_index
 exports.default           = exports['build']
+
+/**
+ *
+ * @param {ChildProcess} child_process
+ * @param {num} mode
+ */
+function pipe_output(child_process, mode = 0) {
+  if (!child_process) return
+  switch (mode) {
+    case 0:
+      child_process.stdout.pipe(process.stdout)
+      break
+    case 1:
+      child_process.stderr.pipe(process.stderr)
+      break
+    default:
+      child_process.stdout.pipe(process.stdout)
+      child_process.stderr.pipe(process.stderr)
+      break
+  }
+
+  return child_process
+}
