@@ -1,15 +1,29 @@
 <div class="cal-box container-fluid wow fadeInRight slow">
   <div class="row">
+    {{! calendar graphic }}
     <div class="col-3 date-container">
-    <i class="cal-date icon far fa-calendar"></i>
-    <div class="cal-date">5</div>
-    </div>
-    <div class="col-9">
-      <div class="row">
-        <i>4/15/1999 6:30pm</i>
+      <div class="cal-date">
+        <i class="icon far fa-calendar"></i>
       </div>
-      <div class="row d-flex align-items-center h-100">
-        <h3 class="display-5">Do A Thing</h3>
+      <div class="cal-date">
+        <span class="cal-day">
+          25
+        </span>
+      </div>
+    </div>
+    {{! event details }}
+    <div class="col-9">
+      <div class="container cal-details">
+        <div class="row">
+          <i>
+            4/15/1999 6:30pm
+          </i>
+        </div>
+        <div class="row d-flex h-100 text-right">
+          <h3 class="display-5">
+            Do A Thing
+          </h3>
+        </div>
       </div>
     </div>
   </div>

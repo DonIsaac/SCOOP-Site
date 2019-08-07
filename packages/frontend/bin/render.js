@@ -141,7 +141,7 @@ const HELPER_DIR = path.join(root, source, helperDir)
 // When a string array, each element represents a subdirectory.
 const TEMPLATE_PARTIALS_DIRS = partialDirs.map(dir => path.join(root, source, dir))
 /* [
-	path.join('..', 'docs', 'assets', 'src', 'partials')
+  path.join('..', 'docs', 'assets', 'src', 'partials')
 ].map(dir => path.resolve(__dirname, dir)) */
 
 /*
@@ -215,7 +215,7 @@ const data_async = () => Promise.try(() => log.log('Loading template data...'))
   .then(() => readdir(TEMPLATE_DATA_DIR, 'utf-8'))
   .filter(filename => {
     let split_name = filename.split('.')
-    let filetype = filename.split('.')[split_name.length -1]
+    let filetype = filename.split('.')[split_name.length - 1]
     // data files must end in .json or .js
     let valid = ['json', 'js'].includes(filetype)
     log.debug(`data: controller file ${filename} ends with ${filetype} is ${valid ? 'valid' : 'invalid'}`)
@@ -235,13 +235,13 @@ const data_async = () => Promise.try(() => log.log('Loading template data...'))
         .then(data_obj => {
           return { page: d.split('.')[0], value: data_obj }
         })
-      } else if (d.endsWith('.js')) { // data is a script that exports a controller object
-        let data_exports = await require(data_path)
-        let controller = data_exports.default || data_exports // handle ES6 exports
-        return { page: d.split('.')[0], value: controller }
-      } else { // should be unreachable, acts as a sanity check
-        throw new Error('Invalid data filetype.')
-      }
+    } else if (d.endsWith('.js')) { // data is a script that exports a controller object
+      let data_exports = await require(data_path)
+      let controller = data_exports.default || data_exports // handle ES6 exports
+      return { page: d.split('.')[0], value: controller }
+    } else { // should be unreachable, acts as a sanity check
+      throw new Error('Invalid data filetype.')
+    }
   })
   .reduce((data_map, data) => {
     data_map[data.page] = data.value
@@ -261,20 +261,21 @@ const data_async = () => Promise.try(() => log.log('Loading template data...'))
  * Register handlebars partials
  */
 const partials_async = () => Promise.each(TEMPLATE_PARTIALS_DIRS, dir => {
-  readdir(dir, 'utf-8') // Get the files in one of the partial directories
+  return readdir(dir, 'utf-8') // Get the files in one of the partial directories
     // Filter out anything that isn't a handlebars file or doesn't start with '_'
     .filter(partial => partial.startsWith('_') && partial.endsWith('.hbs'))
     .each(partial => {
-      readFile(path.join(dir, partial), 'utf-8')
+      return readFile(path.join(dir, partial), 'utf-8')
         .then(partial_contents => { // Read the contents and register it with handlebars
           let partial_name = partial.split('.')[0]
           partial_name = partial_name.substr(1, partial_name.length - 1)
-          log.log(`Registering partial ${partial_name}...`)
+          log.log(`PARTIALS: Registering partial ${partial_name}...`)
           partial_contents.page_name = partial_contents.page_name || partial_name
           return hbs.registerPartial(partial_name, partial_contents)
         })
     })
 })
+  .then(log.debug('PARTIALS: All partials registered.'))
   .catch(raise('Error thrown while registering partials'))
 
 const layouts_async = () => Promise.try(() => log.log('Loading layouts...'))
@@ -361,9 +362,8 @@ function resolveRoot(root = process.cwd()) {
 
   let found = false
 
-  for (
-    ;   // start at specified root
-    !found && root !== systemRoot;  // Stop searching if config file is found or we reach the root dir
+  for (; // start at specified root
+    !found && root !== systemRoot; // Stop searching if config file is found or we reach the root dir
     root = path.resolve(root, '..') // Go to parent directory, search again
   ) {
     /** @type {String[]} */
