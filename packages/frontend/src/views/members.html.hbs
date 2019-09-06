@@ -1,0 +1,40 @@
+{{#extend "application"}}
+{{!-- This content will be put in the head tag. Use it to load stylesheets. --}}
+{{#content "head"}}
+<link rel="stylesheet" href="assets/css/members.css">
+{{/content}}
+
+{{!-- This is where stuff the user sees should go. --}}
+{{#content "body"}}
+<section class="bg-primary text-light">
+    {{!-- page title and text --}}
+    <div class="container">
+        <div class="row-center">
+            <h2 class="section-title">Our Members</h2>
+        </div>
+        <div class="row-center mb-5">
+            <p>
+            Here you put some inspirational paragraph about how sustainably minded your members are. Consider covering details about how active they are,
+            what kinds of criteria they meet, or maybe just talk them up. This is where I run out of ideas of what to say, but I need more filler text,
+            so I'm just gonna keep on typing.
+            </p>
+        </div>
+    </div> {{!-- /page title and text --}}
+    {{!-- member cards --}}
+    <div class="container-fluid px-5">
+        <div class="row-eq-height justify-content-center">
+            {{#each members}}
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 my-4">
+
+                {{>member-box title=name text=text url=url}}
+            </div> {{!-- /col --}}
+            {{/each}}
+        </div> {{!-- /row --}}
+    </div> {{!-- /member cards --}}
+</section>
+{{/content}}
+
+{{!-- This content will be put at the bottom of the page. Use it to load scripts. --}}
+{{#content "foot"}}
+{{/content}}
+{{/extend}}

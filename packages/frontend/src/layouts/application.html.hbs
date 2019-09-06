@@ -22,8 +22,12 @@
 
 <body>
   {{> header1}}
-  {{#block "body"}}
-  {{/block}}
+  <div id="content-wrapper" class="bg-primary">
+    <main id="page-content" class="bg-primary">
+    {{#block "body"}}
+    {{/block}}
+    </main>
+  </div>
   {{> footer }}
   <script src="assets/lib/wow/wow.min.js"></script>
 
