@@ -7,21 +7,24 @@
 {{!-- This is where stuff the user sees should go. --}}
 {{#content "body"}}
 
-{{>carousel}}
+{{>carousel carousel-data=carousel-data}}
 {{! About Us Section }}
 <section class="bg-primary">
   <div class="container">
     <div class="row justify-content-center text-light">
-      <h2 class="section-title">About Us</h2>
+      <h2 class="section-title">Who We Are</h2>
       <p>
-        Praesent quis porttitor risus, a interdum ex. Vestibulum ante ipsum primis in faucibus orci luctus
-        et ultrices posuere cubilia Curae; In tristique dictum nibh, suscipit maximus elit. Fusce porta
-        condimentum leo vel viverra. Suspendisse elementum consequat tortor, sed blandit mauris vulputate
-        aliquam. Aenean vel faucibus dui, in interdum dolor. Cras consequat suscipit velit, sed porta ante
-        eleifend eget. Duis egestas nec nisl sit amet varius. Praesent quis purus eu libero pulvinar congue
-        sed non eros
+        The Sustainability Cooperative at the University of Maryland, fondly known as SCoop,
+        is a collective of student organizations, university departments, and community individuals
+        interested in improving sustainability on campus. Founded by students in 2018, SCoop
+        continues to grow and host more opportunities for members of our community and for the
+        larger university and city. By joining together, we optimize funding opportunities, and
+        individual SCoop member organizations gain an advantage in building interdisciplinary project
+        teams. The cooperative meets regularly to network and workshop concepts and projects,
+        allowing for increasing collaboration and innovation as well as elevated awareness of local initiatives!
       </p>
-      <button type="button" class="btn btn-outline-light"><span class="fas fa-user-plus icon-left"></span> Join Us</button>
+      <a href="#" type="" class="btn btn-outline-light mr-3"><span class="fas fa-user-plus icon-left"></span> Become a Member</a>
+      <a href="#" type="" class="btn btn-outline-light"><span class="far fa-envelope icon-left"></span> Join Our Email List</a>
     </div>
   </div>
 </section>
@@ -40,17 +43,17 @@
   </div>
 </section>
 
-<section class="bg-primary">
+{{!-- <section class="bg-primary">
   <div class="container">
     <div class="row justify-content-center text-light text-center">
       <h2 class="section-title">Membership Benefits</h2>
     </div>
     <div class="row row-eq-height mt-5">
-      {{#each membership}}
+      {{#each membership}
       <div class="col-sm-12 col-md-6 col-lg-4">
-        {{>box icon=icon title=title text=text}}
+        {{>box icon=icon title=title text=text}
       </div>
-      {{/each}}
+      {{/each}
     </div>
     <div class="row justify-content-center">
       <p class="text-light">
@@ -62,19 +65,18 @@
       <a href="./members.html" class="btn btn-outline-light"><span class="fa fa-users icon-left"></span> Browse Current Members</a>
     </div>
   </div>
-</section>
+</section> --}}
 <section class="bg-primary">
   <div class="container">
     <div class="row justify-content-center text-light text-center">
       <h2 class="section-title">Upcoming Events</h2>
     </div>
     <div class="row justify-content-center">
+      {{#each events}}
       <div class="col-lg-6">
-        {{>cal-box}}
+        {{>cal-box day=day date=date name=name}}
       </div>
-      <div class="col-lg-6">
-        {{>cal-box}}
-      </div>
+      {{/each}}
     </div>
   </div>
 </section>

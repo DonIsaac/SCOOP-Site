@@ -4,7 +4,7 @@
     <img src="{{img}}" class="d-block" alt="carousel-image">
     <div class="carousel-caption d-none d-md-block">
       <h5 class="caption-title animated fadeInDown">{{title}}</h5>
-      <p class="caption-body animated fadeInUp">{{{@partial-block}}}</p>
+      <p class="caption-body animated fadeInUp">{{{text}}}</p>
       {{!-- <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a> --}}
     </div>
   </div>
@@ -16,25 +16,21 @@
   data-keyboard="true">
   <!-- Indicators - Li'l bois on the bottom that tell you which carousel item you're on -->
   <ol class="carousel-indicators">
-    <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#mainCarousel" data-slide-to="1" class></li>
-    <li data-target="#mainCarousel" data-slide-to="2" class></li>
+    {{#times carousel-data.length}}
+    <li data-target="#mainCarousel" data-slide-to="{{this}}" {{#if_eq this 0}}class="active"{{/if_eq}}></li>
+    {{/times}}
   </ol>
   <!-- All the good stuff inside the carousel -->
   <div class="carousel-inner">
 
+    {{#each carousel-data}}
+      {{#if_eq @index 0}}
+        {{>carousel-item active="true" title=this.title img=this.img text=this.text}}
+      {{else}}
+        {{>carousel-item active=0 title=this.title img=this.img text=this.text}}
+      {{/if_eq}}
+    {{/each}}
 
-    {{#>carousel-item active="true" title="SCOOP Image 1" img="assets/img/carousel-1.jpg"}}
-      Morbi fringilla ipsum mi, a vulputate mauris auctor vel
-    {{/carousel-item}}
-
-    {{#>carousel-item active=0 title="SCOOP Image 2" img="assets/img/carousel-2.jpg"}}
-      In tincidunt, ipsum in elementum fermentum, arcu leo pharetra
-    {{/carousel-item}}
-
-    {{#>carousel-item active=0 title="SCOOP Image 3" img="assets/img/carousel-3.jpg"}}
-      Morbi in quam nec risus fermentum molestie a vel lacus
-    {{/carousel-item}}
   </div>
   <!-- End of inner carousel, start of controls -->
   <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">

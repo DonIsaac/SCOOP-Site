@@ -6,10 +6,15 @@
     { "text": "Members", "url": "./members.html"}
   ],
   "active": "Home",
+  "carousel-data": [
+    { "title": "", "img": "assets/img/carousel-1.jpg", "text":"\"SCoop-ers\" gather for a photo outside of LEAFHouse after installing a living canopy at the 2019 SCoop Spring Bash"},
+    { "title": "", "img": "assets/img/carousel-2.jpg", "text":"SCoop members support the green new deal and climate justice during the Climate Justice Rally at UMD."},
+    { "title": "", "img": "assets/img/carousel-3.jpg", "text":"SCoop partners with the We Are Water collective to clean up Paint Branch stream in April of 2019."}
+  ],
   "activities": [
-    { "title": "Hikes", "text": "We go hiking around college park and the appalachian trail at least once a month." },
-    { "title": "Socials", "text": "Member organizations come together bi-annualy for a club social. Come meet new people and make some connections!" },
-    { "title": "Volunteering", "text": "We do a wide range of community service in the College Park area. Some examples are watershed cleanups, invasive species removal, and working soup kitchens." }
+    { "title": "Cleanups", "text": "Sometimes partnering with We Are Water Collective and sometimes setting up our own hikes, we regularly host opportunities to explore and clean up nature with our fellow SCoop-ers!" },
+    { "title": "Workshops", "text": "At our biweekly meetings, we offer the opportunity for any individual or organization to submit proposals for collaborative workshops focused on specific projects. Submit your workshop proposal <a href=\"#\">here</a> and join us at our meetings in the ESJ loft to participate in others!" },
+    { "title": "Networking", "text": "SCoop meetings and events give members a chance to meet other individuals and organizations in the local  sustainability community and find opportunities for jobs and involvement in projects." }
   ],
   "membership": [
     { "icon": "fas fa-pizza-slice", "title": "Pizza", "text": "Free pizza every friday", "delay":"0.0s" },
@@ -18,6 +23,12 @@
     { "icon": "fa fa-paper-plane", "title": "Paper Planes", "text": "Paper airplane throwing competitions", "delay": "0.0s" },
     { "icon": "fas fa-flask", "title": "Science!", "text": "We do science and stuff", "delay": "0.1s" },
     { "icon": "fas fa-running", "title": "Exit", "text": "Please proceed to the nearest exit portal", "delay": "0.2s" }
+  ],
+  "events": [
+    { "day": 13, "date": "9/13/2019", "name": "SCoop Meeting/Workshop"},
+    { "day": 13, "date": "9/13/2019", "name": "UMD Fridays for Future"},
+    { "day": 20, "date": "9/20/2019", "name": "Climate Strike"},
+    { "day": 28, "date": "9/28/2019", "name": "Sustainability Mixer"}
   ],
   "scoop-email": "SCOOPemail@mailinator.com"
 }
