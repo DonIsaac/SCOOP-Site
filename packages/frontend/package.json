@@ -28,6 +28,7 @@
     "devDependencies": {
         "@types/node": "^12.6.2",
         "gulp": "^4.0.2",
-        "gulp-sass": "^4.0.2"
+        "gulp-sass": "^4.0.2",
+        "gulp-zip": "^5.0.0"
     }
 }

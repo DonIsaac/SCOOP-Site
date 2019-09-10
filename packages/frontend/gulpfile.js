@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 var sass = require('gulp-sass');
+const zip = require('gulp-zip')
 const { exec } = require('child_process')
 
 const build_js = () => pipe_output(exec('./bin/render.js'))
@@ -23,9 +24,16 @@ function dev(cb) {
     cb()
 }
 
+function bundle_built_site() {
+    return gulp.src('build/*')
+    .pipe(zip('scoop-site.zip'))
+    .pipe(gulp.dest('dist'))
+}
+
 exports['build:js'] = build_js
 exports['build:assets'] = gulp.parallel(build_css, build_assets)
 exports['build'] = gulp.parallel(build_js, build_css, build_assets)
+exports['deploy'] = gulp.series(exports['build'], bundle_built_site)
 exports['dev'] = gulp.series(exports['build'], open_index, dev)
 exports['dev:no-open'] =  gulp.series(exports['build'], dev)
 exports['open'] = open_index
