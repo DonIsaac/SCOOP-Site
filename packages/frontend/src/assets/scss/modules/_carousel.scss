@@ -26,7 +26,8 @@
       background-size: cover;
       filter: brightness(80%);
       width: 100%;
-      //max-width: 100vw;
+      // max-width: 110vw;
+      // max-height: 75vh !important;
       overflow-x: hidden;
     }
   }
@@ -41,13 +42,13 @@
     padding-bottom: 3em;
 
     .caption-title {
-      font-size: 3em;
+      font-size: 2em;
       margin-bottom: 2em;
       animation-delay: 0.5s;
     }
 
     .caption-body {
-      font-size: 2em;
+      font-size: 1em;
       animation-delay: 0.5s;
     }
   }
