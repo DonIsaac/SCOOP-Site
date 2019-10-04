@@ -3,7 +3,7 @@
         { "text": "Home", "url": "./index.html" },
         { "text": "About", "url": "./about.html" },
         { "text": "Calendar", "url": "./calendar.html" },
-        { "text": "Members", "url": "./members.html"}
+        { "text": "Member Orgs", "url": "./members.html"}
       ],
     "members": [
         { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},

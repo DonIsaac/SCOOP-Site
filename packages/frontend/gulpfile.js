@@ -2,7 +2,9 @@ const gulp = require('gulp')
 var sass = require('gulp-sass');
 const zip = require('gulp-zip')
 const { exec } = require('child_process')
+const del = require('del')
 
+const clean = () => del(['dist/**/*', 'build/**/*'])
 const build_js = () => pipe_output(exec('./bin/render.js'))
     // const build_css = () => exec('sass src/css/input.scss build/css/compiled.css')
 const build_css = () =>
@@ -25,19 +27,51 @@ function dev(cb) {
 }
 
 function bundle_built_site() {
-    return gulp.src('build/*')
+    return gulp.src('build/**/*')
     .pipe(zip('scoop-site.zip'))
     .pipe(gulp.dest('dist'))
 }
 
+/**
+ * Sends the zipped build files in dist/ to the production server
+ */
+const deploy_to_prod = cmd('scp dist/scoop-site.zip root@www.scooperative.org:/var/www')
+
+/**
+ * Runs the setup script on the production server. The setup script will
+ * take the built files that were sent up, put them where they need to be,
+ * and restart the server to display the changes.
+ */
+const exec_on_prod = cmd('ssh root@www.scooperative.org /var/www/setup')
+
+exports['clean'] = clean
 exports['build:js'] = build_js
 exports['build:assets'] = gulp.parallel(build_css, build_assets)
 exports['build'] = gulp.parallel(build_js, build_css, build_assets)
-exports['deploy'] = gulp.series(exports['build'], bundle_built_site)
+exports['deploy'] = gulp.series(clean, exports['build'], bundle_built_site, deploy_to_prod, exec_on_prod)
 exports['dev'] = gulp.series(exports['build'], open_index, dev)
 exports['dev:no-open'] =  gulp.series(exports['build'], dev)
 exports['open'] = open_index
 exports.default = exports['build']
+
+/**
+ * Creates a function that executes a terminal/bash/whatever command as a child
+ * process. The command's stdout and stderr are piped to the terminal so that you can see it.
+ * The returned function is usable by gulp.
+ *
+ * @param {string} cmd The terminal command to execute
+ *
+ * @returns {(cb: Function) => void} A function that can be used by gulp to execute the command
+ */
+function cmd(cmd) {
+    return function(cb) {
+        exec(cmd, function(err, stdout, stderr) {
+            console.log(stdout);
+            console.error(stderr);
+            cb(err);
+        });
+    }
+}
 
 /**
  * Pipes the output streams of a child process to the currently executing process's output streams.

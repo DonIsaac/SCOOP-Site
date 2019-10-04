@@ -3,7 +3,7 @@
     { "text": "Home", "url": "./index.html" },
     { "text": "About", "url": "./about.html" },
     { "text": "Calendar", "url": "./calendar.html" },
-    { "text": "Members", "url": "./members.html"}
+    { "text": "Member Orgs", "url": "./members.html"}
   ],
   "active": "Home",
   "carousel-data": [
