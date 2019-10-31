@@ -4,6 +4,7 @@ node_modules
 # Editor Files
 .vscode
 .idea
+*.code-workspace
 
 # Compiled Code
 dist/
