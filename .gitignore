@@ -8,7 +8,6 @@ node_modules
 
 # Compiled Code
 dist/
-build/
 
 # Temporary Files
 *.log
