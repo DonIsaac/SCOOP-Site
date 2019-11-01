@@ -1,9 +1,9 @@
 {
   "pages": [
     { "text": "Home", "url": "./index.html" },
+    { "text": "Member Orgs", "url": "./members.html"},
     { "text": "About", "url": "./about.html" },
-    { "text": "Calendar", "url": "./calendar.html" },
-    { "text": "Member Orgs", "url": "./members.html"}
+    { "text": "Calendar", "url": "./calendar.html" }
   ],
   "active": "Home",
   "carousel-data": [

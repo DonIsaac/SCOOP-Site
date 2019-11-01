@@ -1,10 +1,10 @@
 {
   "pages": [
-      { "text": "Home", "url": "./index.html" },
-      { "text": "About", "url": "./about.html" },
-      { "text": "Calendar", "url": "./calendar.html" },
-      { "text": "Member Orgs", "url": "./members.html"}
-    ],
+    { "text": "Home", "url": "./index.html" },
+    { "text": "Member Orgs", "url": "./members.html"},
+    { "text": "About", "url": "./about.html" },
+    { "text": "Calendar", "url": "./calendar.html" }
+  ],
   "carousel-data": [
     { "title": "", "img": "assets/img/1.SpringBash.jpg", "text": "Our 2019 “Spring Bash” event made sustainability networking easy and fun. With a partially farm-to-table and vegan-friendly potluck, yard games, and musical performances, we connected as a community to celebrate our progress and build new connections to go further!"},
     { "title": "", "img": "assets/img/2.GoodNeighborDay.jpg", "text": "Several SCoop members volunteered at Good Neighbor Day 2019 to learn about and help maintain an edible garden not far from campus. Make sure to join us this year to have as much fun as Amelia Avis is having!"},

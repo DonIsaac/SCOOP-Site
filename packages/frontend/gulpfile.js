@@ -5,7 +5,7 @@ const { exec } = require('child_process')
 const del = require('del')
 
 const clean = () => del(['dist/**/*', 'build/**/*'])
-const build_js = () => pipe_output(exec('./bin/render.js'))
+const build_html = () => pipe_output(exec('./bin/render.js'))
     // const build_css = () => exec('sass src/css/input.scss build/css/compiled.css')
 const build_css = () =>
     gulp.src('src/assets/scss/**/*.scss')
@@ -19,7 +19,7 @@ const build_assets = () =>
 const open_index = () => exec('/bin/open build/index.html')
 
 function dev(cb) {
-    gulp.watch(['src/**/*', '!src/assets/scss/**/*'], build_js)
+    gulp.watch(['src/**/*', '!src/assets/scss/**/*'], build_html)
     gulp.watch('src/assets/scss/**/*', build_css)
     gulp.watch(['src/assets/**/*', '!src/assets/scss/**/*'], build_assets)
 
@@ -44,15 +44,27 @@ const deploy_to_prod = cmd('scp dist/scoop-site.zip root@www.scooperative.org:/v
  */
 const exec_on_prod = cmd('ssh root@www.scooperative.org /var/www/setup')
 
-exports['clean'] = clean
-exports['build:js'] = build_js
-exports['build:assets'] = gulp.parallel(build_css, build_assets)
-exports['build'] = gulp.parallel(build_js, build_css, build_assets)
-exports['deploy'] = gulp.series(clean, exports['build'], bundle_built_site, deploy_to_prod, exec_on_prod)
-exports['dev'] = gulp.series(exports['build'], open_index, dev)
-exports['dev:no-open'] =  gulp.series(exports['build'], dev)
-exports['open'] = open_index
-exports.default = exports['build']
+exports['clean']                    = clean
+exports['clean'].description        = 'Delete built website files'
+
+exports['build:html']               = build_html
+exports['build:html'].description   = 'Build only the web pages'
+exports['build:assets']             = gulp.parallel(build_css, build_assets)
+exports['build:assets'].description = 'Build only the assets (e.g. SCSS -> CSS)'
+exports['build']                    = gulp.parallel(build_html, build_css, build_assets)
+exports['build'].description        = 'Build the entire website. Built files are production ready.'
+
+exports['deploy']                   = gulp.series(clean, exports['build'], bundle_built_site, deploy_to_prod, exec_on_prod)
+exports['deploy'].description       = 'Builds the website, bundles it into a .zip, and deploys/installs it onto the production server.'
+exports['dev']                      = gulp.series(exports['build'], open_index, dev)
+exports['dev'].description          = 'Starts a production server.'
+exports['dev:no-open']              = gulp.series(exports['build'], dev)
+exports['dev:no-open'].description  = 'Starts the production server without opening the website. Useful for windows machines.'
+exports['open']                     = open_index
+exports['open'].description         = 'Opens the website with your default browser. Only works on MacOS.'
+
+exports.default                     = exports['build']
+exports.default.description         = 'Runs the build task.'
 
 /**
  * Creates a function that executes a terminal/bash/whatever command as a child

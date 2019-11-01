@@ -1,35 +1,18 @@
 {
     "pages": [
         { "text": "Home", "url": "./index.html" },
+        { "text": "Member Orgs", "url": "./members.html"},
         { "text": "About", "url": "./about.html" },
-        { "text": "Calendar", "url": "./calendar.html" },
-        { "text": "Member Orgs", "url": "./members.html"}
+        { "text": "Calendar", "url": "./calendar.html" }
       ],
     "members": [
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"},
-        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "#"}
+        { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "https://opensourceryumd.com"},
+        { "name": "Cooperation College Park", "text": "Cooperation College Park fosters a community around democracy, sustainability, expression, & justice. We promote an understanding of cooperative theory and practice in order to develop student-led worker cooperatives in College Park.", "url": "#"},
+        { "name": "Sustainable Ocean Alliance", "text": "The purpose of our organization is to raise awareness of the relationship humans have with the ocean and involve the campus community in solutions to promote healthy marine ecosystems. We aim to foster a community of passion and social action, tackling ever more pressing threats facing the ocean through advocacy and activism.", "url": "#"},
+        { "name": "ROOTS Africa", "text": "ROOTS is a student-led organization that combats hunger and poverty by connecting academic institutions and experts in the US to farming communities in Africa. We are achieving this mission though weekly video conferences with our partner institution, Liberian International Christian College, our Tiny Books Project, and by organizing the annual Global Collective conference.", "url": "#"},
+        { "name": "The Hammock Club", "text": "The Hammock Club aims to promote sustainability and healthy living through the use of outdoor portable hammocks, where members can take a break from their studies and spend time relaxing outdoors with other students.", "url": "#"},
+        { "name": "Food Recovery Network", "text": "The Food Recovery Network (FRN) is a student group at the University of Maryland that focuses on hunger relief and preventing food waste by collecting surplus food from the three dining halls on campus and donating them to community partners. FRN engages a diverse array of students, faculty, and administrators in order to build a community and promote sustainability.", "url": "#"},
+        { "name": "American Ecological Engineering Society", "text": "The purpose of our organization is promoting the development of sustainable ecosystems that integrate human society with the natural environment for the benefit of both. This is accomplished predmonantly through student-led on-campus project design and implementation, as well as through community outreach, public education, and professional development and student research.", "url": "#"}
 
     ]
 }
