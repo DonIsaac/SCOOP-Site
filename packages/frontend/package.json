@@ -7,7 +7,7 @@
         "render": "render.js"
     },
     "scripts": {
-        "build": "gulp build:js ; gulp build:css",
+        "build": "gulp build:js; gulp build:css",
         "test": "echo \"Error: no test specified\" && exit 1",
         "sass:compile": "sass src/assets/scss/_base.scss build/css/compiled.css"
     },
@@ -22,7 +22,7 @@
         "bootstrap": "^4.3.1",
         "commander": "^2.20.0",
         "del": "^5.1.0",
-        "handlebars": "^4.1.2",
+        "handlebars": "^4.5.0",
         "handlebars-layouts": "^3.1.4",
         "ulog": "^1.1.0"
     },

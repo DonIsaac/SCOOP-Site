@@ -5,7 +5,7 @@ const { exec } = require('child_process')
 const del = require('del')
 
 const clean = () => del(['dist/**/*', 'build/**/*'])
-const build_html = () => pipe_output(exec('./bin/render.js'))
+const build_html = () => pipe_output(exec('node ./bin/render.js'))
     // const build_css = () => exec('sass src/css/input.scss build/css/compiled.css')
 const build_css = () =>
     gulp.src('src/assets/scss/**/*.scss')
