@@ -2,8 +2,8 @@
   "pages": [
     { "text": "Home", "url": "./index.html" },
     { "text": "Member Orgs", "url": "./members.html"},
-    { "text": "About", "url": "./about.html" },
-    { "text": "Calendar", "url": "./calendar.html" }
+    { "text": "Calendar", "url": "./calendar.html" },
+    { "text": "About", "url": "./about.html" }
   ],
   "carousel-data": [
     { "title": "", "img": "assets/img/1.SpringBash.jpg", "text": "Our 2019 “Spring Bash” event made sustainability networking easy and fun. With a partially farm-to-table and vegan-friendly potluck, yard games, and musical performances, we connected as a community to celebrate our progress and build new connections to go further!"},

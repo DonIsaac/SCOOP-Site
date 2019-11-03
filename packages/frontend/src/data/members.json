@@ -2,8 +2,8 @@
     "pages": [
         { "text": "Home", "url": "./index.html" },
         { "text": "Member Orgs", "url": "./members.html"},
-        { "text": "About", "url": "./about.html" },
-        { "text": "Calendar", "url": "./calendar.html" }
+        { "text": "Calendar", "url": "./calendar.html" },
+        { "text": "About", "url": "./about.html" }
       ],
     "members": [
         { "name": "Open Sourcery", "text": "Dedicated to making programming more accessable, serving the campus community's tech needs, and sustainability.", "url": "https://opensourceryumd.com"},
