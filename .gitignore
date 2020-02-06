@@ -21,3 +21,4 @@ dist/
 # API and Encryption keys
 *.pem
 *.key
+*.tmpdocs

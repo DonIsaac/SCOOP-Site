@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  console.log('nice')
+  console.log('Hey you, you\'re finally awake');
 
   $.ajax({
     method: 'GET',
