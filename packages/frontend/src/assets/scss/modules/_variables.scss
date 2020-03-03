@@ -3,7 +3,7 @@
  */
 
  $theme-colors: (
-  // Note: Edge does not support 8-digit color notation for some stupid-ass reason
+  // Note: Edge does not support 8-digit color notation for some stupid reason
   "primary": rgba(23, 36, 16, 0.741),
   "danger": rgb(255, 65, 54),
   "light": lighten(desaturate(rgb(102, 196, 99), 55%), 57%) //#a1da7f-ish
