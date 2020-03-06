@@ -1,6 +1,9 @@
 # Dependencies
 node_modules
 
+# Test server files
+packages/frontend/testing/
+
 # Editor Files
 .vscode
 .idea
