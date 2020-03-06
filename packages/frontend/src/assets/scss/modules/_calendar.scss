@@ -1,4 +1,13 @@
 @import "box";
+
+.google-cal {
+    width: 80vw;
+    height: 800px;
+    max-height: 70wh;
+    border: none;
+}
+
+// Styling for custom calendar (not implemented)
 .cal-box {
     @extend .box;
     padding: 30px 20px;

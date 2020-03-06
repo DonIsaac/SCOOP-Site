@@ -8,12 +8,12 @@
   margin-right: 0;
   color: map-get($theme-colors, "light");
 
-  .carousel-inner {
+  // .carousel-inner {
     // width: 100vw;
     // padding-left: 0;
     // padding-right: 0;
-  }
-  // margin-bottom: 4rem;
+  // }
+  
   .carousel-item {
     height: 75vh; /* Declare heights because of positioning of img element */
 
