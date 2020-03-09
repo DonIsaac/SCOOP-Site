@@ -189,9 +189,10 @@ const sources_async = () => Promise.try(() => log.log('Loading templates...'))
     // templates must end in .hbs. Also, ignore partials, which start with '_'
     return split_file[split_file.length - 1] === 'hbs' && !split_file[0].startsWith('_')
   })
-  .map(f => { // Read the template
+  .map(f => { // Read the template from the file
     return readFile(path.join(TEMPLATE_SOURCE_DIR, f), 'utf-8')
       .then(contents => {
+        // Return an object with the template's name and contents
         return { page: f.split('.')[0], value: contents }
       })
 

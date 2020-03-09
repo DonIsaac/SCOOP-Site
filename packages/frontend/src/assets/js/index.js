@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log('Hey you, you\'re finally awake');
 
   // $.ajax({
   //   method: 'GET',

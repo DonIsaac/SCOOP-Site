@@ -2,7 +2,7 @@
   "pages": [
     { "text": "Home", "url": "./index.html" },
     { "text": "Member Orgs", "url": "./members.html"},
-    { "text": "Calendar", "url": "./calendar.html" },
+    { "text": "Get Involved", "url": "./get-involved.html" },
     { "text": "About", "url": "./about.html" }
   ],
   "active": "Home",
