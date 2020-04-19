@@ -2,18 +2,20 @@
   <a class="nav-link {{#if active}}active{{/if}}" href="{{url}}">{{@partial-block}}</a>
 {{/inline}}
 
-<nav class="heading px-5 pt-4">
+<div class="heading row-center">
+  <a href="index.html">
+    <div class="col text-uppercase">
+      <span class="h1 muted">
+        The 
+        <span class="display-4 ml-2 mr-2">Sustainability Cooperative </span>
+        at the University of Maryland
+      </span>
+    </div>
+  </a>
+  {{!-- TODO - add group photo carousel here --}}
+</div>
+<nav class="heading px-5 pt-4 sticky-top">
   <div class="row-center">
-    <a href="index.html">
-      <div class="col text-uppercase">
-        <span class="h1 muted">
-          The 
-          <span class="display-4 ml-2 mr-2">Sustainability Cooperative </span>
-          at the University of Maryland
-        </span>
-      </div>
-    </a>
-    {{!-- TODO - add group photo carousel here --}}
+    {{> nav pages=pages active=active}}
   </div>
-  {{> nav pages=pages active=active}}
 </nav>
