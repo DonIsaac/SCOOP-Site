@@ -1,3 +1,6 @@
+@import "../../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 .heading {
@@ -13,10 +16,44 @@
       transition: color 0.5s ease-in;
       -webkit-transition: color 0.5s ease-in;
     }
+
+    .h2 {
+      font-size: 1rem;
+      .display-4 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @include media-breakpoint-up(sm) {
+      .h2 {
+        font-size: 1.5rem;
+        .display-4 {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      .h2 {
+        font-size: 1.5rem;
+        .display-4 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  
+    @include media-breakpoint-up(lg) {
+      .h2 {
+        font-size: 2rem;
+        .display-4 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+
   }
 
-.nav-link {
-  font-size: .90em;
-}
-
+  .nav-link {
+    font-size: 0.9em;
+  }
 }
